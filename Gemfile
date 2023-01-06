@@ -31,7 +31,7 @@ gem 'devise'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
-gem 'pundit'
+gem 'pundit', '2.2.0'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
