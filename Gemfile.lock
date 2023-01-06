@@ -346,7 +346,7 @@ DEPENDENCIES
   pundit (~> 2.3)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7)
-  redis (~> 4.0)
+  redis (~> 4.6)
   rspec-rails (~> 6.0.0)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)

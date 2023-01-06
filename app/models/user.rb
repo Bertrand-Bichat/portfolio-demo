@@ -28,7 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Callbacks
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   #Enums
   enumerize :role, in: [:customer, :admin], default: :customer, scope: true
