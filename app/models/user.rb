@@ -28,6 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Callbacks
+  before_validation :shape_data
   after_create_commit :send_welcome_email
 
   # Enums
@@ -41,6 +42,11 @@ class User < ApplicationRecord
   end
 
   private
+
+  def shape_data
+    self.first_name = first_name.strip.downcase.capitalize
+    self.last_name  = last_name.strip.downcase.capitalize
+  end
 
   def send_welcome_email
     UserMailer.with(user: self).notification_welcome.deliver_later
