@@ -72,3 +72,4 @@ gem "pundit", "~> 2.3"
 gem "sidekiq", "~> 7.0"
 gem 'sidekiq-failures'
 gem 'devise-async'
+gem 'enumerize'

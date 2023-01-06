@@ -20,6 +20,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  extend Enumerize
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :async, :registerable,
@@ -27,6 +29,9 @@ class User < ApplicationRecord
 
   # Callbacks
   after_create :send_welcome_email
+
+  #Enums
+  enumerize :role, in: [:customer, :admin], default: :customer, scope: true
 
   def full_name
     "#{first_name} #{last_name}"

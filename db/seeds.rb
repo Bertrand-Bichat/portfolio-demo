@@ -13,12 +13,14 @@ else
   puts "Creating 10 fake users..."
   10.times do
     user = User.new(
-      email:       Faker::Internet.email,
-      password:    Faker::Internet.password(min_length: 12)
+      email:         Faker::Internet.email,
+      password:      Faker::Internet.password(min_length: 12),
+      first_name:    Faker::Name.first_name,
+      last_name:     Faker::Name.last_name
     )
     user.save!
   end
 
-  puts "Finished!"
 
+  puts "Finished!"
 end
