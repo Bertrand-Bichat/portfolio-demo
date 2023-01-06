@@ -25,7 +25,7 @@ module PortfolioDemo
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Set the default local language
-    config.i18n.default_locale = :fr
+    config.i18n.default_locale = :en
 
     # hearders for security
     config.action_dispatch.default_headers = {
