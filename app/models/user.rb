@@ -42,7 +42,6 @@ class User < ApplicationRecord
 
   # Scopes
   default_scope -> { order(id: :asc) }
-  scope :for_admins, -> { where(role: "admin") }
 
   def full_name
     "#{first_name} #{last_name}"

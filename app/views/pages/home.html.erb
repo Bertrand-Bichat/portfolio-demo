@@ -1,2 +1,4 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container mb-5">
+  <%= render partial: "user_cards", locals: { title: "Admins", users: @admins} %>
+  <%= render partial: "user_cards", locals: { title: "Customers", users: @customers} %>
+</div>
