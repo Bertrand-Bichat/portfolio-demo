@@ -11,7 +11,6 @@ else
 
 
   puts "Creating 10 fake users..."
-
   10.times do
     user = User.new(
       email:       Faker::Internet.email,
