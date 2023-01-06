@@ -68,3 +68,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "pundit", "~> 2.3"
+gem "sidekiq", "~> 7.0"
+gem 'sidekiq-failures'
+gem 'devise-async'
