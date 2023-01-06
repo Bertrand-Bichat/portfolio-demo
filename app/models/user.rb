@@ -30,8 +30,11 @@ class User < ApplicationRecord
   # Callbacks
   after_create_commit :send_welcome_email
 
-  #Enums
+  # Enums
   enumerize :role, in: [:customer, :admin], default: :customer, scope: true
+
+  # Validations
+  validates :first_name, :last_name, presence: true
 
   def full_name
     "#{first_name} #{last_name}"
