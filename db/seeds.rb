@@ -4,8 +4,8 @@ puts 'Creating 10 fake users...'
 
 10.times do
   user = User.new(
-    email:    Faker::Company.name,
-    password:    Faker::Company.name
+    email:       Faker::Internet.email,
+    password:    Faker::Internet.password(min_length: 12)
   )
   user.save!
 end
