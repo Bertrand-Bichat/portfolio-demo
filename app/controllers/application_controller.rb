@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
         :password,
         :password_confirmation,
         :first_name,
-        :last_name
+        :last_name,
+        :avatar
       )
     end
 
@@ -25,7 +26,8 @@ class ApplicationController < ActionController::Base
         :current_password,
         :password_confirmation,
         :first_name,
-        :last_name
+        :last_name,
+        :avatar
       )
     end
   end
