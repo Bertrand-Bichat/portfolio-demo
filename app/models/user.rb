@@ -37,6 +37,9 @@ class User < ApplicationRecord
   # Validations
   validates :first_name, :last_name, presence: true
 
+  # Active Storage
+  has_one_attached :avatar
+
   def full_name
     "#{first_name} #{last_name}"
   end
