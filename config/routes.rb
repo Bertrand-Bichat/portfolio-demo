@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Sidekiq Web UI, only for admins.
-  authenticate :user, ->(user) { user.admin? } do
+  authenticate :user, ->(user) { user.role.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
