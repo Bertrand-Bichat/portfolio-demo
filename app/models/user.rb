@@ -40,6 +40,10 @@ class User < ApplicationRecord
   # Active Storage
   has_one_attached :avatar
 
+  # Scopes
+  default_scope -> { order(id: :asc) }
+  scope :for_admins, -> { where(role: "admin") }
+
   def full_name
     "#{first_name} #{last_name}"
   end
