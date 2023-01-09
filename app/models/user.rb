@@ -46,6 +46,7 @@ class User < ApplicationRecord
 
   # Scopes
   default_scope -> { order(id: :asc) }
+  scope :with_online_true, -> { where(online: true) }
 
   def full_name
     "#{first_name} #{last_name}"
@@ -56,7 +57,7 @@ class User < ApplicationRecord
   def shape_data
     firstname = first_name.strip.downcase.capitalize
     lastname  = last_name.strip.downcase.capitalize
-    self.update_columns(first_name: firstname, last_name: lastname)
+    update_columns(first_name: firstname, last_name: lastname)
   end
 
   def send_welcome_email

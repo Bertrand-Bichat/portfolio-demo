@@ -62,4 +62,16 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'scopes' do
+    before do
+      create(:user, :with_customer_role, online: true)
+      create_list(:user, 10, :with_customer_role)
+    end
+    context '#with_online_true' do
+      it 'should filter user with online true' do
+        expect(User.with_online_true.count).to eq(1)
+      end
+    end
+  end
 end
