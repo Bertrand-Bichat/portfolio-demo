@@ -19,8 +19,8 @@ else
       first_name:    Faker::Name.first_name,
       last_name:     Faker::Name.last_name
     )
-    file = File.open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
-    user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
+    file = File.open(Rails.root.join('app', 'assets', 'images', 'empty-avatar.png'))
+    user.avatar.attach(io: file, filename: 'empty-avatar.png', content_type: 'image/jpg')
     user.save!
   end
 
@@ -35,6 +35,17 @@ else
     )
     user.save!
   end
+
+  puts "Creating 1 admin..."
+  user = User.new(
+    email:         "test@gmail.com",
+    password:      "password",
+    first_name:    "Bertrand",
+    last_name:     "Bichat"
+  )
+  file = File.open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
+  user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
+  user.save!
 
 
   puts "Finished!"
