@@ -23,6 +23,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe 'enum' do
+    it { is_expected.to enumerize(:role).in(:customer, :admin).with_default(:customer).with_scope(true) }
+  end
+
   describe 'validations' do
     before do
       subject { build(:user, :with_customer_role) }
