@@ -27,10 +27,10 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 6, max_length: 128) }
     online { false }
-    trait :customer do
+    trait :with_customer_role do
       role { "customer" }
     end
-    trait :admin do
+    trait :with_admin_role do
       role { "admin" }
     end
   end

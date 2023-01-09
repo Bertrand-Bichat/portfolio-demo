@@ -29,7 +29,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Callbacks
-  before_validation :shape_data
+  after_commit :shape_data, on: [:create, :update]
   after_create_commit :send_welcome_email
 
   # Enums
@@ -54,8 +54,9 @@ class User < ApplicationRecord
   private
 
   def shape_data
-    self.first_name = first_name.strip.downcase.capitalize
-    self.last_name  = last_name.strip.downcase.capitalize
+    firstname = first_name.strip.downcase.capitalize
+    lastname  = last_name.strip.downcase.capitalize
+    self.update_columns(first_name: firstname, last_name: lastname)
   end
 
   def send_welcome_email
