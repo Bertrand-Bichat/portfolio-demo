@@ -73,3 +73,4 @@ gem "sidekiq", "~> 6.0.2"
 gem 'sidekiq-failures'
 gem 'devise-async'
 gem 'enumerize'
+gem 'view_component'
