@@ -36,4 +36,30 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:password) }
   end
+
+  describe 'test enum role' do
+    context '#customer' do
+      it 'should have customer role' do
+        create(:user, :with_customer_role)
+        expect(User.last.role).to eq('customer')
+      end
+    end
+    context '#admin' do
+      it 'should have admin role' do
+        create(:user, :with_admin_role)
+        expect(User.last.role).to eq('admin')
+      end
+    end
+  end
+
+  describe 'Instance methods' do
+    before do
+      create(:user, :with_customer_role, first_name: 'James', last_name: 'Smith')
+    end
+    context '#full_name' do
+      it 'should display full_name' do
+        expect(User.last.full_name).to eq('James Smith')
+      end
+    end
+  end
 end
