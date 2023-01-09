@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UserCardComponent < ViewComponent::Base
+class UserCardsComponent < ViewComponent::Base
   def initialize(title:, users:)
     @title = title
     @users = users
