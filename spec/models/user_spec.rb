@@ -69,7 +69,7 @@ RSpec.describe User, type: :model do
       create_list(:user, 10, :with_customer_role)
     end
     context '#with_online_true' do
-      it 'should filter user with online true' do
+      it 'should filter users with online true' do
         expect(User.with_online_true.count).to eq(1)
       end
     end
