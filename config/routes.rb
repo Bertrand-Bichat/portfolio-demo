@@ -1,7 +1,7 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   root to: 'pages#home'
   # devise_scope :user do
   #   root to: "devise/sessions#new"

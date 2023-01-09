@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :initialize_component_context
 
   # store actual page before login to redirect to this page after login
   before_action :store_user_location!, if: :storable_location?
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :initialize_component_context
 
   include Pundit::Authorization
 
