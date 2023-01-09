@@ -34,11 +34,14 @@ class User < ApplicationRecord
   # Enums
   enumerize :role, in: [:customer, :admin], default: :customer, scope: true
 
-  # Validations
-  validates :first_name, :last_name, presence: true
-
   # Active Storage
   has_one_attached :avatar
+
+  # Validations
+  validates :first_name, :last_name, presence: true
+  validates :avatar,
+            size: { less_than: 2.megabytes, message: 'image de 2 Mo ou moins' },
+            content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser une image au format PNG, JPG ou JPEG' }
 
   # Scopes
   default_scope -> { order(id: :asc) }
