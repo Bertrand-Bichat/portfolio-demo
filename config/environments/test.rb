@@ -9,6 +9,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 
+  config.active_job.queue_adapter = :test
+
   config.cache_classes = false
   config.action_view.cache_template_loading = true
 

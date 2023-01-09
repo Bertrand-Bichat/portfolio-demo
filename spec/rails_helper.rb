@@ -6,6 +6,8 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'faker'
+require 'view_component/test_helpers'
+require 'capybara/rspec'
 
 I18n.reload!
 
@@ -39,6 +41,15 @@ RSpec.configure do |config|
 
   # Faker locale
   Faker::Config.locale = :en
+
+  # View Components
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
+  config.include Devise::Test::ControllerHelpers, type: :component
+  config.before(:each, type: :component) do
+    @request = controller.request
+  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
