@@ -8,15 +8,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Accueil", root_path, class: "nav-link" %>
+            <%= link_to "Utilisateurs", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag current_user&.avatar.attached? ? current_user.avatar : "empty-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag current_user&.avatar.attached? ? current_user.avatar : "empty-avatar.png", class: "avatar-large dropdown-toggle", role: "button", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to 'Modifier mon compte', edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

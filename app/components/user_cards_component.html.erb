@@ -1,7 +1,8 @@
 <h2 class="mt-5"><%= @title %> (<%= @users.count %>)</h2>
 <div class="row">
   <% @users.each do |u| %>
-    <div class="col-12 col-md-6 col-lg-3">
+    <div class="col-12 col-md-6 col-lg-3 my-1">
+      <%= image_tag u.avatar, class: "avatar" %>
       <%= u.full_name %>
     </div>
   <% end %>

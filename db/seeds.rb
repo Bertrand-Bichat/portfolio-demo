@@ -20,7 +20,7 @@ else
       last_name:     Faker::Name.last_name
     )
     file = File.open(Rails.root.join('app', 'assets', 'images', 'empty-avatar.png'))
-    user.avatar.attach(io: file, filename: 'empty-avatar.png', content_type: 'image/jpg')
+    user.avatar.attach(io: file, filename: 'empty-avatar.png', content_type: 'image/png')
     user.save!
   end
 
@@ -33,6 +33,8 @@ else
       last_name:     Faker::Name.last_name,
       role:          "admin"
     )
+    file = File.open(Rails.root.join('app', 'assets', 'images', 'empty-avatar.png'))
+    user.avatar.attach(io: file, filename: 'empty-avatar.png', content_type: 'image/png')
     user.save!
   end
 
@@ -41,7 +43,8 @@ else
     email:         "test@gmail.com",
     password:      "password",
     first_name:    "Bertrand",
-    last_name:     "Bichat"
+    last_name:     "Bichat",
+    role:          "admin"
   )
   file = File.open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
   user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
