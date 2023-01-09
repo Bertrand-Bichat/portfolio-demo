@@ -3,6 +3,10 @@ require "sidekiq/web"
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  # devise_scope :user do
+  #   root to: "devise/sessions#new"
+  # end
+  # get '/users', to: 'pages#home'
 
   # Sidekiq Web UI, only for admins.
   authenticate :user, ->(user) { user.role.admin? } do
