@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
   before_action :authenticate_user!
+  before_action :initialize_component_context
 
   private
+
+  def initialize_component_context
+    Current.user = current_user
+  end
 
   # equivalent a user_params (qu'est-ce qu'on autorise a etre modifie)
   def configure_permitted_parameters
