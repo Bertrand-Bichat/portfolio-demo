@@ -52,13 +52,16 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'Instance methods' do
+  describe 'callbacks' do
     before do
-      create(:user, :with_customer_role, first_name: 'James', last_name: 'Smith')
+      create(:user, :with_customer_role, first_name: ' jean ', last_name: ' dupond ')
     end
-    context '#full_name' do
-      it 'should display full_name' do
-        expect(User.last.full_name).to eq('James Smith')
+    context '#shape_data' do
+      it 'should strip and capitalize the first_name' do
+        expect(User.last.first_name).to eq('Jean')
+      end
+      it 'should strip and capitalize the last_name' do
+        expect(User.last.last_name).to eq('Dupond')
       end
     end
   end
@@ -71,6 +74,17 @@ RSpec.describe User, type: :model do
     context '#with_online_true' do
       it 'should filter users with online true' do
         expect(User.with_online_true.count).to eq(1)
+      end
+    end
+  end
+
+  describe 'Instance methods' do
+    before do
+      create(:user, :with_customer_role, first_name: 'James', last_name: 'Smith')
+    end
+    context '#full_name' do
+      it 'should display full_name' do
+        expect(User.last.full_name).to eq('James Smith')
       end
     end
   end
