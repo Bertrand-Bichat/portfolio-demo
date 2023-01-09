@@ -1,5 +1,5 @@
 fr:
-  simple_form:
+  simple_form_fr:
     "yes": 'Oui'
     "no": 'Non'
     required:
