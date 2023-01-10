@@ -4,8 +4,29 @@
     <!-- Meta data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= meta_title %></title>
+    <meta name="Language" content="fr" />
     <%= yield :canonical %>
-    <title>Portfolio Demo</title>
+
+    <!-- Facebook Open Graph data -->
+    <meta name="title" property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta name="url" property="og:url" content="<%= request.original_url %>" />
+    <meta name="image" property="og:image" content="<%= meta_image %>" />
+    <meta name="description" property="og:description" content="<%= meta_description %>" />
+    <meta name="site_name" property="og:site_name" content="<%= meta_title %>" />
+    <meta name="language" property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
+
+    <!-- LinkedIn data -->
+    <meta name="author" content="Bertrand Bichat" />
 
     <!-- PWA : Manifest JSON & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">

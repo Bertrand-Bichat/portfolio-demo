@@ -1,0 +1,5 @@
+meta_product_name: "Portfolio Demo"
+meta_title: "Portfolio Demo - site de démonstration"
+meta_description: "Ceci est un site de démonstration pour mon portfolio. Il sert à montrer ce que j'ai déjà codé sur Ruby on Rails."
+meta_image: "apple-icon.png" # should exist in `app/assets/images/`
+twitter_account: "@EveilDesConscie"   # required for Twitter Cards
