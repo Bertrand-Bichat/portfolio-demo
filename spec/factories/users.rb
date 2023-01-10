@@ -12,6 +12,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :string
+#  welcome_email          :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -27,6 +28,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 6, max_length: 128) }
     online { false }
+    welcome_email { "not_sent" }
     trait :with_customer_role do
       role { "customer" }
     end

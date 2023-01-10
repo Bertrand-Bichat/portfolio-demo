@@ -12,6 +12,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :string
+#  welcome_email          :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -25,6 +26,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'enum' do
     it { is_expected.to enumerize(:role).in(:customer, :admin).with_default(:customer).with_scope(true) }
+    it { is_expected.to enumerize(:welcome_email).in(:not_sent, :processed, :delivered, :opened, :clicked, :bounced).with_default(:not_sent).with_scope(true) }
   end
 
   describe 'validations' do

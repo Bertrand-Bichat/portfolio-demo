@@ -12,6 +12,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :string
+#  welcome_email          :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -34,6 +35,7 @@ class User < ApplicationRecord
 
   # Enums
   enumerize :role, in: [:customer, :admin], default: :customer, scope: true
+  enumerize :welcome_email, in: [:not_sent, :processed, :delivered, :opened, :clicked, :bounced], default: :not_sent, scope: true
 
   # Active Storage
   has_one_attached :avatar
