@@ -17,7 +17,8 @@ else
       email:         Faker::Internet.email,
       password:      Faker::Internet.password(min_length: 12),
       first_name:    Faker::Name.first_name,
-      last_name:     Faker::Name.last_name
+      last_name:     Faker::Name.last_name,
+      pseudo:        Faker::Internet.slug
     )
     file = File.open(Rails.root.join('app', 'assets', 'images', 'empty-avatar.png'))
     user.avatar.attach(io: file, filename: 'empty-avatar.png', content_type: 'image/png')
@@ -31,7 +32,8 @@ else
       password:      Faker::Internet.password(min_length: 12),
       first_name:    Faker::Name.first_name,
       last_name:     Faker::Name.last_name,
-      role:          "admin"
+      role:          "admin",
+      pseudo:        Faker::Internet.slug
     )
     file = File.open(Rails.root.join('app', 'assets', 'images', 'empty-avatar.png'))
     user.avatar.attach(io: file, filename: 'empty-avatar.png', content_type: 'image/png')
@@ -44,7 +46,8 @@ else
     password:      "password",
     first_name:    "Bertrand",
     last_name:     "Bichat",
-    role:          "admin"
+    role:          "admin",
+    pseudo:        "BBichat"
   )
   file = File.open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
   user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')

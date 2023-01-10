@@ -10,4 +10,8 @@ class PagePolicy < Struct.new(:user, :page)
   def offline?
     true
   end
+
+  def profil?
+    user_loggedin?
+  end
 end

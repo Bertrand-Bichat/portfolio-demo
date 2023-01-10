@@ -8,10 +8,12 @@
 #  first_name             :string
 #  last_name              :string
 #  online                 :boolean
+#  pseudo                 :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :string
+#  slug                   :string
 #  welcome_email          :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -20,9 +22,12 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_slug                  (slug) UNIQUE
 #
 class User < ApplicationRecord
   extend Enumerize
+  extend FriendlyId
+  friendly_id :pseudo, use: [:slugged, :finders]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -42,6 +47,7 @@ class User < ApplicationRecord
 
   # Validations
   validates :first_name, :last_name, presence: true
+  validates :pseudo, presence: true, uniqueness: true
   validates :avatar,
             size: { less_than: 2.megabytes, message: 'image de 2 Mo ou moins' },
             content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser une image au format PNG, JPG ou JPEG' }

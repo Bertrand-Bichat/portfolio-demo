@@ -1,13 +1,14 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  get '/offline', to: 'pages#offline', as: :offline
   devise_for :users, controllers: { registrations: 'registrations' }
-  root to: 'pages#home'
   # devise_scope :user do
   #   root to: "devise/sessions#new"
   # end
   # get '/users', to: 'pages#home'
+  root to: 'pages#home'
+  get '/offline', to: 'pages#offline', as: :offline
+  get '/profil/:slug', to: 'pages#profil', as: :profil
 
   namespace :webhooks do
     scope :postmark do

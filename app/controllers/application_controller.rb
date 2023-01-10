@@ -62,7 +62,8 @@ class ApplicationController < ActionController::Base
         :first_name,
         :last_name,
         :avatar,
-        :role
+        :role,
+        :pseudo
       )
     end
 
@@ -76,7 +77,8 @@ class ApplicationController < ActionController::Base
         :first_name,
         :last_name,
         :avatar,
-        :role
+        :role,
+        :pseudo
       )
     end
   end

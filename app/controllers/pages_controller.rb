@@ -11,4 +11,9 @@ class PagesController < ApplicationController
     authorize :page, :offline?
     render 'offline', layout: false
   end
+
+  def profil
+    authorize :page, :profil?
+    @user = User.find(params[:slug])
+  end
 end
