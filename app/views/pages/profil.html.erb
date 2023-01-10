@@ -1,3 +1,5 @@
 <div class="container">
   <h1 class="text-center my-5">Profil de <%= @user.pseudo %></h1>
+  <%= image_tag @user.avatar, class: "avatar" %>
+  <span class=<%= "text-green" if @user.online %>><%= @user.full_name %></span>
 </div>
