@@ -25,6 +25,6 @@ FactoryBot.define do
     address { "MyString" }
     longitude { 1.5 }
     latitude { 1.5 }
-    user { nil }
+    association :user
   end
 end
