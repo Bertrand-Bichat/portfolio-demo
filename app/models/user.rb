@@ -35,10 +35,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :async, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # Callbacks
-  after_commit :shape_data, on: [:create, :update]
-  after_create_commit :send_welcome_email
-
   # Enums
   enumerize :role, in: [:customer, :admin], default: :customer, scope: true
   enumerize :welcome_email, in: [:not_sent, :processed, :delivered, :opened, :clicked, :bounced], default: :not_sent, scope: true
@@ -56,6 +52,10 @@ class User < ApplicationRecord
   # Scopes
   default_scope -> { order(id: :asc) }
   scope :with_online_true, -> { where(online: true) }
+
+  # Callbacks
+  after_commit :shape_data, on: [:create, :update]
+  after_create_commit :send_welcome_email
 
   def full_name
     "#{first_name} #{last_name}"

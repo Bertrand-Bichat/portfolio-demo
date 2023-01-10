@@ -34,6 +34,7 @@ FactoryBot.define do
     online { false }
     welcome_email { "not_sent" }
     pseudo { Faker::Internet.slug }
+    banned { false }
     trait :with_customer_role do
       role { "customer" }
     end
