@@ -19,6 +19,9 @@ module PortfolioDemo
     # Set the default local language
     config.i18n.default_locale = :fr
 
+    # fix Faker locale
+    Faker::Config.locale = :en
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

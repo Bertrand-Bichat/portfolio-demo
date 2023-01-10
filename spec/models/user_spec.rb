@@ -40,6 +40,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:last_name) }
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_presence_of(:pseudo) }
+    it { is_expected.to validate_uniqueness_of(:pseudo) }
   end
 
   describe 'test enum role' do
@@ -54,6 +56,13 @@ RSpec.describe User, type: :model do
         create(:user, :with_admin_role)
         expect(User.last.role).to eq('admin')
       end
+    end
+  end
+
+  describe 'test enum welcome_email' do
+    it 'should have welcome_email not sent' do
+      create(:user, :with_customer_role)
+      expect(User.last.welcome_email).to eq('not_sent')
     end
   end
 

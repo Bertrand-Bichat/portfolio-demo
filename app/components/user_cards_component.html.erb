@@ -5,7 +5,7 @@
       <%= image_tag u.avatar, class: "avatar" %>
       <span class=<%= "text-green" if u.online %>><%= u.full_name %></span>
       <%= link_to profil_path(u.slug) do %>
-        <i class="fa-solid fa-eye"></i>
+        <i class="fa fa-eye"></i>
       <% end %>
     </div>
   <% end %>

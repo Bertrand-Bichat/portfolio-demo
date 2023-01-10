@@ -32,6 +32,7 @@ FactoryBot.define do
     password { Faker::Internet.password(min_length: 6, max_length: 128) }
     online { false }
     welcome_email { "not_sent" }
+    pseudo { Faker::Internet.slug }
     trait :with_customer_role do
       role { "customer" }
     end
