@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
   # get '/users', to: 'pages#home'
+  get '/offline', to: 'pages#offline', as: :offline
 
   # Sidekiq Web UI, only for admins.
   authenticate :user, ->(user) { user.role.admin? } do
