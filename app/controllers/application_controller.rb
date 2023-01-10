@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :sign_out_banned_user
 
   # store actual page before login to redirect to this page after login
   before_action :store_user_location!, if: :storable_location?
@@ -16,6 +17,13 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
+
+  def sign_out_banned_user
+    return unless current_user&.banned?
+
+    sign_out current_user
+    redirect_to root_path, alert: "Ce compte a été suspendu pour violation des conditions générales d'utilisation."
+  end
 
   def initialize_component_context
     Current.user = current_user
