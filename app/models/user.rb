@@ -39,6 +39,9 @@ class User < ApplicationRecord
   enumerize :role, in: [:customer, :admin], default: :customer, scope: true
   enumerize :welcome_email, in: [:not_sent, :processed, :delivered, :opened, :clicked, :bounced], default: :not_sent, scope: true
 
+  # Associations
+  has_many :houses, dependent: :destroy
+
   # Active Storage
   has_one_attached :avatar
 
