@@ -1,0 +1,16 @@
+<% content_for :meta_title, "La page que vous cherchez n'existe pas (erreur 404)"%>
+
+<div class="container">
+
+  <!-- logo -->
+  <div class="d-flex justify-content-around py-5">
+    <%= image_tag 'apple-icon.png', alt: 'logo', class: "col-2", loading: 'lazy' %>
+  </div>
+
+  <!-- text & button -->
+  <h1 class="mb-5 text-center">Désolé, la page que vous cherchez n'existe pas <br> (erreur 404)</h1>
+  <div class="d-flex justify-content-around">
+    <p><%= link_to "Retourner à la page d'accueil", root_path, class: "btn btn-primary error-btn text-white" %></p>
+  </div>
+
+</div>

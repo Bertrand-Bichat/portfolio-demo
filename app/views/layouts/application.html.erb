@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <% unless devise_controller? %>
+    <% unless devise_controller? || controller_name == "errors" %>
       <%= render 'shared/navbar' %>
     <% end %>
 
