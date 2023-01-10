@@ -28,6 +28,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe 'associations' do
+    it { is_expected.to have_many(:houses).dependent(:destroy) }
+  end
+
   describe 'enum' do
     it { is_expected.to enumerize(:role).in(:customer, :admin).with_default(:customer).with_scope(true) }
     it { is_expected.to enumerize(:welcome_email).in(:not_sent, :processed, :delivered, :opened, :clicked, :bounced).with_default(:not_sent).with_scope(true) }
