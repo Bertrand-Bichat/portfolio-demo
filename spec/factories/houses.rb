@@ -21,10 +21,10 @@
 #
 FactoryBot.define do
   factory :house do
-    name { "MyString" }
-    address { "MyString" }
-    longitude { 1.5 }
-    latitude { 1.5 }
+    name { Faker::Address.community }
+    address { "55 Rue du Faubourg Saint-Honoré, 75008 Paris" }
+    longitude {}
+    latitude {}
     association :user
   end
 end

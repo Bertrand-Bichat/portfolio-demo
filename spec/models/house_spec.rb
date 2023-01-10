@@ -34,4 +34,19 @@ RSpec.describe House, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:address) }
   end
+
+  describe 'callbacks' do
+    before do
+      user = create(:user, :with_customer_role)
+      create(:house, user: user)
+    end
+    context '#geocoding' do
+      it 'should geocode longitude' do
+        expect(House.last.longitude).not_to be_nil
+      end
+      it 'should geocode latitude' do
+        expect(House.last.latitude).not_to be_nil
+      end
+    end
+  end
 end
