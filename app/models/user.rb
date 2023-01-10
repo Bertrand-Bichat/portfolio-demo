@@ -46,8 +46,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   # Validations
-  validates :first_name, :last_name, presence: true
-  validates :pseudo, presence: true, uniqueness: true
+  validates :first_name, :last_name, :pseudo, presence: true
+  validates :pseudo, uniqueness: true
   validates :avatar,
             size: { less_than: 2.megabytes, message: 'image de 2 Mo ou moins' },
             content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser une image au format PNG, JPG ou JPEG' }
@@ -63,6 +63,8 @@ class User < ApplicationRecord
   private
 
   def shape_data
+    return if first_name.nil? || last_name.nil?
+
     firstname = first_name.strip.downcase.capitalize
     lastname  = last_name.strip.downcase.capitalize
     update_columns(first_name: firstname, last_name: lastname)

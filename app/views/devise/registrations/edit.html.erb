@@ -34,6 +34,10 @@
                         required: true,
                         label: "Nom",
                         input_html: { autocomplete: "last_name" } %>
+            <%= f.input :pseudo,
+                        required: true,
+                        label: "Pseudo",
+                        input_html: { autocomplete: "pseudo" } %>
             <%= f.input :avatar, as: :file %>
             <%= f.input :password,
                         hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) + " (ne remplissez pas ce champ si vous souhaitez conserver votre mot de passe)",
