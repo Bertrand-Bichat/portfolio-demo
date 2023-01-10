@@ -1,3 +1,5 @@
+<% canonical(root_url) %>
+
 <div class="container mb-5">
   <%= render(UserCardsComponent.new(title: "Admins", users: @admins)) %>
   <%= render(UserCardsComponent.new(title: "Customers", users: @customers)) %>

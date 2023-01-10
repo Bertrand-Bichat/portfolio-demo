@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Meta data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= yield :canonical %>
     <title>Portfolio Demo</title>
 
     <!-- PWA : Manifest JSON & icons -->
@@ -13,7 +15,6 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
