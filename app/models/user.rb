@@ -47,7 +47,7 @@ class User < ApplicationRecord
 
   # Validations
   validates :first_name, :last_name, :pseudo, presence: true
-  validates :pseudo, uniqueness: true
+  validates :pseudo, uniqueness: { message: "déjà pris. Veuillez en choisir un autre, svp." }
   validates :avatar,
             size: { less_than: 2.megabytes, message: 'image de 2 Mo ou moins' },
             content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser une image au format PNG, JPG ou JPEG' }
