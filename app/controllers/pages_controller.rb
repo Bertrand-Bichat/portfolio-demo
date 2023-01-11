@@ -23,6 +23,6 @@ class PagesController < ApplicationController
         info_window: render_to_string(partial: "shared/info_window", locals: { house: house, path: house_path(house) }),
         image_url: helpers.asset_url('pointer.png')
       }
-      end
+    end
   end
 end
