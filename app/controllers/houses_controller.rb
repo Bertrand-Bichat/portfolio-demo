@@ -1,6 +1,10 @@
 class HousesController < ApplicationController
   before_action :set_house, only: %i[show edit update destroy]
 
+  def index
+    @houses = policy_scope(House)
+  end
+
   def show; end
 
   def new
@@ -40,7 +44,7 @@ class HousesController < ApplicationController
     @house.destroy
 
     respond_to do |format|
-      format.html { redirect_to profil_path(current_user.slug), notice: "La maison a bien été supprimée." }
+      format.html { redirect_to houses_path, notice: "La maison a bien été supprimée." }
       format.json { head :no_content }
     end
   end

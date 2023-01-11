@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   match '/500', to: 'errors#internal_server_error', via: :all
 
   # Models
-  resources :houses, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :houses
 
   # Develomment tools
   authenticate :user, ->(user) { user.role.admin? } do

@@ -2,4 +2,6 @@
   <p class="pop-title"><%= @house.name %></p>
   <p class="pop-time"><%= @house.created_at.strftime("ajouté le %d-%m-%Y") %></p>
   <p class="pop-user"><%= @house.address %></p>
+  <br>
+  <div><%= link_to "Retour", :back %></div>
 </div>

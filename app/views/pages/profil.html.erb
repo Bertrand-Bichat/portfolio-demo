@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-between align-items-center my-5">
     <h2>Ses maisons</h2>
     <div></div>
-    <%= link_to "+ Ajouter une maison", new_house_path, class: "btn btn-primary" %>
+    <%= link_to "Gérer mes maisons", houses_path, class: "btn btn-primary" %>
   </div>
   <% if @houses_geocoded.empty? %>
     <em>Aucune</em>
