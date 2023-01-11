@@ -16,6 +16,9 @@ module PortfolioDemo
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # Whitelist locales available for the application
+    I18n.available_locales = [:en, :fr]
+
     # Set the default local language
     config.i18n.default_locale = :fr
 
