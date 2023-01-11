@@ -15,8 +15,8 @@ class PagesController < ApplicationController
   def profil
     authorize :page, :profil?
     @user = User.find(params[:slug])
-    @houses_geocoded = @user.houses.geocoded
-    @markers = @houses_geocoded.map do |house|
+    @houses_geocoded = @user.houses&.geocoded
+    @markers = @houses_geocoded&.map do |house|
       {
         lat: house.latitude,
         lng: house.longitude,
