@@ -4,7 +4,20 @@ info:
   title: Example API V1
   version: v1
 paths:
-  api/v1/houses:
+  "/api/v1/houses":
+    get:
+      summary: list all houses
+      tags:
+      - houses
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/house"
     post:
       summary: create an house
       tags:
@@ -28,6 +41,65 @@ paths:
           application/json:
             schema:
               "$ref": "#/components/schemas/new_house"
+  "/api/v1/houses/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: house id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show an house
+      tags:
+      - houses
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/house"
+        '404':
+          description:
+            description: Record Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors_not_found"
+    put:
+      summary: update an house
+      tags:
+      - houses
+      parameters: []
+      responses:
+        '200':
+          description: house updated
+        '422':
+          description: invalid request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors_object"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/edit_house"
+    delete:
+      summary: delete an house
+      tags:
+      - houses
+      responses:
+        '204':
+          description: successful
+        '404':
+          description:
+            description: Record Not Found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors_not_found"
 components:
   schemas:
     errors_not_found:
@@ -114,11 +186,11 @@ components:
           description: The house's address.
           example: 46 rue Paradis, 13006 Marseille
         longitude:
-          type: string
+          type: float
           description: 'Coordinates: Longitude'
           example: "-73.4924,45.5458"
         latitude:
-          type: string
+          type: float
           description: 'Coordinates: Latitude'
           example: "-73.4924,45.5458"
         created_at:
