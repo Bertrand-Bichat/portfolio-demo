@@ -22,7 +22,7 @@ RSpec.describe "api/v1/houses", type: :request do
         schema '$ref' => '#/components/schemas/errors_object'
         let(:house) { {} }
         run_test! do |response|
-          expect(response.body).to include(I18n.t("activerecord.errors.messages.blank"))
+          expect(response.body).to include("must be filled")
         end
       end
     end
@@ -65,7 +65,7 @@ RSpec.describe "api/v1/houses", type: :request do
 
         schema '$ref' => '#/components/schemas/errors_object'
         run_test! do |response|
-          expect(response.body).to include(I18n.t("activerecord.errors.messages.required"))
+          expect(response.body).to include("must exist")
         end
       end
     end
