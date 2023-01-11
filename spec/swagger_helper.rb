@@ -49,7 +49,7 @@ RSpec.configure do |config|
             properties: {
               name: { type: :string, description: "The house's name.", example: "My home" },
               address: { type: :string, description: "The house's address.", example: "46 rue Paradis, 13006 Marseille" },
-              user_id: { type: :integer, readOnly: true, minimum: 1, description: "The unique identifier of the house's user", example: 1 },
+              user_id: { type: :integer, minimum: 1, description: "The unique identifier of the house's user", example: 1 },
             },
             required: [ "name", "address" ]
           },
@@ -59,7 +59,7 @@ RSpec.configure do |config|
             properties: {
               name: { type: :string, description: "The house's name.", example: "My home" },
               address: { type: :string, description: "The house's address.", example: "46 rue Paradis, 13006 Marseille" },
-              user_id: { type: :integer, readOnly: true, minimum: 1, description: "The unique identifier of the house's user", example: 1 },
+              user_id: { type: :integer, minimum: 1, description: "The unique identifier of the house's user", example: 1 },
             },
             required: [ "name", "address" ]
           },
