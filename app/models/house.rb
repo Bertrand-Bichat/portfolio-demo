@@ -36,4 +36,8 @@ class House < ApplicationRecord
             size: { less_than: 1.megabytes, message: 'images de 1 Mo chacune ou moins' },
             limit: { min: 0, max: 10, message: '10 images maximum' },
             content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser des images PNG, JPG ou JPEG' }
+
+  def display_data
+    "#{name} - #{address} [#{latitude}, #{longitude}]"
+  end
 end
