@@ -1,7 +1,9 @@
 <div class="container my-5">
   <h1>Gestion de mes maisons</h1>
   <p><%= link_to "+ Ajouter une maison", new_house_path, class: "btn btn-primary" %></p>
-  <% @houses.each do |house| %>
-    <%= render(HouseCardComponent.new(house: house)) %>
-  <% end %>
+  <div class="row mt-5">
+    <% @houses.each do |house| %>
+      <%= render(HouseCardComponent.new(house: house)) %>
+    <% end %>
+  </div>
 </div>

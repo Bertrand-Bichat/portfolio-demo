@@ -1,1 +1,18 @@
-<%= @house.name %>
+<div class="col-12 my-1">
+  <%= @house.name %>
+  <% if Pundit.policy(Current.user, @house).show? %>
+    <%= link_to house_path(@house), class: "ml-3 text-decoration-none" do %>
+      <i class="fa fa-eye"></i>
+    <% end %>
+  <% end %>
+  <% if Pundit.policy(Current.user, @house).edit? %>
+    <%= link_to edit_house_path(@house), class: "ml-3 text-decoration-none" do %>
+      <i class="fa fa-pen"></i>
+    <% end %>
+  <% end %>
+  <% if Pundit.policy(Current.user, @house).destroy? %>
+    <%= link_to house_path(@house), method: :delete, data: { confirm: "Êtes-vous sûr ?" }, class: "ml-3 text-decoration-none" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  <% end %>
+</div>
