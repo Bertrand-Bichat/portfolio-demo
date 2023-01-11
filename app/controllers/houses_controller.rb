@@ -1,4 +1,6 @@
 class HousesController < ApplicationController
+  before_action :find_house, only: [:show, :edit, :update, :destroy]
+
   def show
   end
 
@@ -15,5 +17,11 @@ class HousesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def find_house
+    @house = authorize policy_scope(House).find(params[:id])
   end
 end

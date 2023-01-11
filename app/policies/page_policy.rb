@@ -6,6 +6,7 @@ class PagePolicy < Struct.new(:user, :page)
   def home?
     true
   end
+
   alias offline? home?
 
   def profil?
