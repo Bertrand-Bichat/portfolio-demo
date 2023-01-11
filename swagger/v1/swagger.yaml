@@ -3,185 +3,136 @@ openapi: 3.0.1
 info:
   title: Example API V1
   version: v1
-paths: {}
+paths:
+  api/v1/houses:
+    post:
+      summary: create an house
+      tags:
+      - houses
+      parameters: []
+      responses:
+        '201':
+          description: house created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/house"
+        '422':
+          description: invalid request
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/errors_object"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/new_house"
 components:
   schemas:
-    new_event:
+    errors_not_found:
       type: object
-      description: An event is a timely object happening in time
       properties:
-        intent:
+        message:
           type: string
-          description: The type of event.
-          enum:
-          - event
-          - note
-          - task
-          example: event
+          example: Record Not Found
+    errors_object:
+      type: object
+      properties:
+        errors:
+          "$ref": "#/components/schemas/errors_map"
+    errors_map:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+    new_house:
+      type: object
+      description: A house is a building
+      properties:
+        name:
+          type: string
+          description: The house's name.
+          example: My home
+        address:
+          type: string
+          description: The house's address.
+          example: 46 rue Paradis, 13006 Marseille
         user_id:
           type: integer
+          readOnly: true
           minimum: 1
-          description: The creator user id
+          description: The unique identifier of the house's user
           example: 1
-        title:
-          type: string
-          description: The event's title.
-          example: Important meeting
-        body:
-          type: string
-          description: The description (rich text).
-          example: More info about that event
-        due_at:
-          type: string
-          description: The event's due date.
-          format: date-time
-        start_at:
-          type: string
-          description: The event's start date time.
-          format: date-time
-        end_at:
-          type: string
-          description: The event's ned date time.
-          format: date-time
-        subject_gid:
-          type: string
-          description: 'The parent''s (ex: Person or organization) unique global identifier
-            id'
-          example: gid://app/Person/1
-        person_ids:
-          type: array
-          items:
-            type: integer
-          description: The event's participant ids.
-          default: []
       required:
-      - title
-      - person_ids
-    edit_event:
+      - name
+      - address
+    edit_house:
       type: object
-      description: An event is a timely object happening in time
+      description: A house is a building
       properties:
-        intent:
+        name:
           type: string
-          description: The type of event.
-          enum:
-          - event
-          - note
-          - task
-          example: event
+          description: The house's name.
+          example: My home
+        address:
+          type: string
+          description: The house's address.
+          example: 46 rue Paradis, 13006 Marseille
         user_id:
           type: integer
+          readOnly: true
           minimum: 1
-          description: The creator user id
+          description: The unique identifier of the house's user
           example: 1
-        title:
-          type: string
-          description: The event's title.
-          example: Important meeting
-        body:
-          type: string
-          description: The description (rich text).
-          example: More info about that event
-        due_at:
-          type: string
-          description: The event's due date.
-          format: date-time
-        start_at:
-          type: string
-          description: The event's start date time.
-          format: date-time
-        end_at:
-          type: string
-          description: The event's end date time.
-          format: date-time
-        completed_at:
-          type: string
-          description: The event's date time of completion.
-          format: date-time
-        person_ids:
-          type: array
-          items:
-            type: integer
-          description: The event's participant ids.
-          default: []
       required:
-      - title
-      - person_ids
-    event:
+      - name
+      - address
+    house:
       type: object
-      description: An event is a timely object happening in time
+      description: A house is a building
       properties:
         id:
           type: integer
           readOnly: true
           minimum: 1
-          description: The unique identifier of an event
+          description: The unique identifier of an house
           example: 1
-        account_id:
+        user_id:
           type: integer
           readOnly: true
           minimum: 1
-          description: The unique identifier of the event's account
+          description: The unique identifier of the house's user
           example: 1
-        body:
+        name:
           type: string
-          description: The description (rich text).
-          example: More info about that event
-        intent:
+          description: The house's name.
+          example: My home
+        address:
           type: string
-          description: The type of event.
-          enum:
-          - event
-          - note
-          - task
-          example: event
-        gid:
+          description: The house's address.
+          example: 46 rue Paradis, 13006 Marseille
+        longitude:
           type: string
-          readOnly: true
-          description: The unique global identifier id
-          example: gid://app/Comment/1
-        subject_gid:
+          description: 'Coordinates: Longitude'
+          example: "-73.4924,45.5458"
+        latitude:
           type: string
-          readOnly: true
-          description: 'The parent''s (ex: Person or organization) unique global identifier
-            id'
-          example: gid://app/Person/1
-        title:
+          description: 'Coordinates: Latitude'
+          example: "-73.4924,45.5458"
+        created_at:
           type: string
-          description: The event's title.
-          example: Important meeting
-        due_at:
-          type: string
-          description: The event's due date.
+          description: Creation timestamp.
           format: date-time
-        start_at:
-          nullable: true
+        updated_at:
           type: string
-          description: The event's start date time.
+          description: Last update timestamp.
           format: date-time
-        end_at:
-          nullable: true
-          type: string
-          description: The event's end date time.
-          format: date-time
-        completed:
-          type: boolean
-          description: The event is completed.
-        completed_at:
-          nullable: true
-          type: string
-          description: The event's date time of completion.
-          format: date-time
-        participants:
-          type: array
-          items:
-            "$ref": "#/components/schemas/person"
-          default: []
       required:
       - id
-      - title
-servers:
-- url: http://{defaultHost}
-  variables:
-    defaultHost:
-      default: localhost:3030
+      - user_id
+      - name
+      - address
+      - created_at
+      - updated_at
