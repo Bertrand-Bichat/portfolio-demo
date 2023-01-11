@@ -1,4 +1,4 @@
-class Api::V1::HousesController < ApiController
+class Api::V1::HousesController < Api::V1::ApiController
   def index
     @houses = House.all
   end

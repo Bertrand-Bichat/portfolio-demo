@@ -5,7 +5,7 @@ RSpec.describe "api/v1/houses", type: :request do
     @user = create(:user, :with_customer_role)
   end
 
-  path "api/v1/houses" do
+  path "/api/v1/houses" do
     post("create an house") do
       tags "houses"
       consumes "application/json"
@@ -28,7 +28,7 @@ RSpec.describe "api/v1/houses", type: :request do
     end
   end
 
-  path "api/v1/houses/{id}" do
+  path "/api/v1/houses/{id}" do
     parameter name: "id", in: :path, type: :string, description: "house id"
     let(:house) { create(:house, user: @user) }
     let(:id) { house.id }
@@ -54,7 +54,7 @@ RSpec.describe "api/v1/houses", type: :request do
       tags 'houses'
       consumes "application/json"
       produces "application/json"
-      parameter name: :house, in: :body, schema: { '$ref' => '#/components/schemas/house' }
+      parameter name: :house, in: :body, schema: { '$ref' => '#/components/schemas/edit_house' }
 
       response(200, "house updated") do
         run_test!
