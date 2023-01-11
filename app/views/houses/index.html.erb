@@ -2,6 +2,6 @@
   <h1>Gestion de mes maisons</h1>
   <p><%= link_to "+ Ajouter une maison", new_house_path, class: "btn btn-primary" %></p>
   <% @houses.each do |house| %>
-    <%= house.name %>
+    <%= render(HouseCardComponent.new(house: house)) %>
   <% end %>
 </div>
