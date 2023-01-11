@@ -22,7 +22,7 @@ RSpec.describe "api/v1/houses", type: :request do
         schema '$ref' => '#/components/schemas/errors_object'
         let(:house) { {} }
         run_test! do |response|
-          expect(response.body).to include("must be filled")
+          expect(response.body).to include("doit exister")
         end
       end
     end
@@ -55,17 +55,18 @@ RSpec.describe "api/v1/houses", type: :request do
       consumes "application/json"
       produces "application/json"
       parameter name: :house, in: :body, schema: { '$ref' => '#/components/schemas/edit_house' }
+      let(:house_bis) { create(:house, user: @user) }
+      let(:id) { house_bis.id }
 
       response(200, "house updated") do
         run_test!
       end
 
       response(422, "invalid request") do
-        let(:house) { {} }
-
         schema '$ref' => '#/components/schemas/errors_object'
+        let(:house) { { id: id, name: nil } }
         run_test! do |response|
-          expect(response.body).to include("must exist")
+          expect(response.body).to include("doit être rempli")
         end
       end
     end

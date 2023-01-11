@@ -38,7 +38,7 @@ class Api::V1::HousesController < Api::V1::ApiController
   end
 
   def build_house
-    @house ||= House.build
+    @house ||= House.new
     @house.attributes = house_params
   end
 
