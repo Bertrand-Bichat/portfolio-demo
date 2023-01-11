@@ -24,61 +24,57 @@ RSpec.configure do |config|
       paths: {},
       components: {
         schemas: {
-          new_event: {
-            type: :object,
-            description: "An event is a timely object happening in time",
+          errors_not_found: {
+            type: "object",
             properties: {
-              intent: { type: :string, description: "The type of event.", enum: ["event", "note", "task"], example: "event" },
-              user_id: { type: :integer, minimum: 1, description: "The creator user id", example: 1 },
-              title: { type: :string, description: "The event's title.", example: "Important meeting" },
-              body: { type: :string, description: "The description (rich text).", example: "More info about that event" },
-              due_at: { type: :string, description: "The event's due date.", format: :"date-time" },
-              start_at: { type: :string, description: "The event's start date time.", format: :"date-time" },
-              end_at: { type: :string, description: "The event's ned date time.", format: :"date-time" },
-              subject_gid: { type: :string, description: "The parent's (ex: Person or organization) unique global identifier id", example: "gid://app/Person/1" },
-              person_ids: { type: :array, items: { type: "integer" }, description: "The event's participant ids.", default: [] }
-            },
-            required: [ "title", "person_ids" ]
+              message: { type: "string", example: "Record Not Found" }
+            }
           },
-          edit_event: {
-            type: :object,
-            description: "An event is a timely object happening in time",
+          errors_object: {
+            type: "object",
             properties: {
-              intent: { type: :string, description: "The type of event.", enum: ["event", "note", "task"], example: "event" },
-              user_id: { type: :integer, minimum: 1, description: "The creator user id", example: 1 },
-              title: { type: :string, description: "The event's title.", example: "Important meeting" },
-              body: { type: :string, description: "The description (rich text).", example: "More info about that event" },
-              due_at: { type: :string, description: "The event's due date.", format: :"date-time" },
-              start_at: { type: :string, description: "The event's start date time.", format: :"date-time" },
-              end_at: { type: :string, description: "The event's end date time.", format: :"date-time" },
-              completed_at: { type: :string, description: "The event's date time of completion.", format: :"date-time" },
-              person_ids: { type: :array, items: { type: "integer" }, description: "The event's participant ids.", default: [] }
-            },
-            required: [ "title", "person_ids" ]
+              errors: { '$ref' => "#/components/schemas/errors_map" }
+            }
           },
-          event: {
+          errors_map: {
+            type: "object",
+            additionalProperties: {
+              type: "array",
+              items: { type: "string" }
+            }
+          },
+          new_house: {
             type: :object,
-            description: "An event is a timely object happening in time",
+            description: "A house is a building",
             properties: {
-              id: { type: :integer, readOnly: true, minimum: 1, description: "The unique identifier of an event", example: 1 },
-              account_id: { type: :integer, readOnly: true, minimum: 1, description: "The unique identifier of the event's account", example: 1 },
-              body: { type: :string, description: "The description (rich text).", example: "More info about that event" },
-              intent: { type: :string, description: "The type of event.", enum: ["event", "note", "task"], example: "event" },
-              gid: { type: :string, readOnly: true, description: "The unique global identifier id", example: "gid://app/Comment/1" },
-              subject_gid: { type: :string, readOnly: true, description: "The parent's (ex: Person or organization) unique global identifier id", example: "gid://app/Person/1" },
-              title: { type: :string, description: "The event's title.", example: "Important meeting" },
-              due_at: { type: :string, description: "The event's due date.", format: :"date-time" },
-              start_at: { nullable: true, type: :string, description: "The event's start date time.", format: :"date-time" },
-              end_at: { nullable: true, type: :string, description: "The event's end date time.", format: :"date-time" },
-              completed: { type: :boolean, description: "The event is completed." },
-              completed_at: { nullable: true, type: :string, description: "The event's date time of completion.", format: :"date-time" },
-              participants: {
-                "type": "array",
-                "items": { "$ref": "#/components/schemas/person" },
-                "default": []
-              }
+              name: { type: :string, description: "The house's name.", example: "My home" },
+              address: { type: :string, description: "The house's address.", example: "46 rue Paradis, 13006 Marseille" },
             },
-            required: [ "id", "title" ]
+            required: [ "name", "address" ]
+          },
+          edit_house: {
+            type: :object,
+            description: "A house is a building",
+            properties: {
+              name: { type: :string, description: "The house's name.", example: "My home" },
+              address: { type: :string, description: "The house's address.", example: "46 rue Paradis, 13006 Marseille" },
+            },
+            required: [ "name", "address" ]
+          },
+          house: {
+            type: :object,
+            description: "A house is a building",
+            properties: {
+              id: { type: :integer, readOnly: true, minimum: 1, description: "The unique identifier of an house", example: 1 },
+              user_id: { type: :integer, readOnly: true, minimum: 1, description: "The unique identifier of the house's user", example: 1 },
+              name: { type: :string, description: "The house's name.", example: "My home" },
+              address: { type: :string, description: "The house's address.", example: "46 rue Paradis, 13006 Marseille" },
+              longitude: { "type": "string", description: "Coordinates: Longitude", example: "-73.4924,45.5458" },
+              latitude: { "type": "string", description: "Coordinates: Latitude", example: "-73.4924,45.5458" },
+              created_at: { type: :string, description: "Creation timestamp.", format: :"date-time" },
+              updated_at: { type: :string, description: "Last update timestamp.", format: :"date-time" },
+            },
+            required: [ "id", "user_id", "name", "address", "created_at", "updated_at" ]
           },
         },
       },
