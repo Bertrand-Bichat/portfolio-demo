@@ -1,6 +1,4 @@
 class Api::V1::HousesController < ApiController
-  respond_to :json
-
   def index
     @houses = House.all
   end
