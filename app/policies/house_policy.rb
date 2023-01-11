@@ -1,7 +1,7 @@
 class HousePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user).order(name: :asc)
+      scope.where(user: user)
     end
   end
 

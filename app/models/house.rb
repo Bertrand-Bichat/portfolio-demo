@@ -37,6 +37,9 @@ class House < ApplicationRecord
             limit: { min: 0, max: 10, message: '10 images maximum' },
             content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser des images PNG, JPG ou JPEG' }
 
+  # Scopes
+  default_scope -> { order(name: :asc) }
+
   def display_data
     "#{name} - #{address} [#{latitude}, #{longitude}]"
   end
