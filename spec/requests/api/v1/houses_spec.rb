@@ -13,7 +13,7 @@ RSpec.describe "api/v1/houses", type: :request do
       parameter name: :house, in: :body, schema: { '$ref' => '#/components/schemas/new_house' }
 
       response(201, "house created") do
-        let(:house) { { name: "test", address: "46 rue Paradis, 13006 Marseille", user: @user } }
+        let(:house) { { name: "test", address: "34 Rue Montaigne, Petrie Queensland 4502, Australie", user_id: @user.id } }
         schema '$ref' => '#/components/schemas/house'
         run_test!
       end
