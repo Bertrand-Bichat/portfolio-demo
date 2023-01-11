@@ -82,16 +82,6 @@ RSpec.configure do |config|
           },
         },
       },
-      servers: [
-        {
-          url: 'http://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'localhost:3030'
-            }
-          }
-        }
-      ]
     }
   }
 
