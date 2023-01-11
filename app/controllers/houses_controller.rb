@@ -4,11 +4,12 @@ class HousesController < ApplicationController
   def show; end
 
   def new
-    @house = House.new
+    @house = authorize House.new
   end
 
   def create
-    @house = House.new(house_params)
+    @house = authorize House.new(house_params)
+    @house.user = current_user
 
     respond_to do |format|
       if @house.save

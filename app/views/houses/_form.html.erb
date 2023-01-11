@@ -5,14 +5,16 @@
   <div class="form-inputs">
     <%= f.input :name,
                 required: true,
+                label: "Nom",
                 input_html: { autocomplete: "name" } %>
     <%= f.input :address,
                 required: true,
+                label: "Adresse",
                 input_html: { autocomplete: "address", data: { address_autocomplete_target: "address" }, class: "d-none" },
                 wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] }} %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Sauvegarder", class: "btn btn-primary" %>
   </div>
 <% end %>

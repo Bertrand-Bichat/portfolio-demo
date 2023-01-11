@@ -9,8 +9,11 @@ class HousePolicy < ApplicationPolicy
     record.user == user
   end
 
-  alias new? show?
-  alias create? show?
+  def new?
+    user_loggedin?
+  end
+
+  alias create? new?
   alias edit? show?
   alias update? show?
   alias destroy? show?
