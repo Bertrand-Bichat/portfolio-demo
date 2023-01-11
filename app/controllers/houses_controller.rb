@@ -21,7 +21,7 @@ class HousesController < ApplicationController
         format.js {}
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @house.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -35,7 +35,7 @@ class HousesController < ApplicationController
         format.js {}
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @house.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
