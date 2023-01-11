@@ -14,8 +14,6 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import { initMapbox } from '../components/init_mapbox';
 
 window.addEventListener('load', () => {
   if ("serviceWorker" in navigator) {
@@ -48,9 +46,4 @@ window.addEventListener('load', () => {
 // force to reload the page when internet connexion is offline to render the offline page in cache
 window.addEventListener('offline', () => {
   window.location.reload();
-});
-
-document.addEventListener('turbolinks:load', () => {
-  // Mapbox
-  initMapbox();
 });

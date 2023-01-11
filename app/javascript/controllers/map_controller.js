@@ -1,7 +1,6 @@
 import { Controller } from "stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
-// Connects to data-controller="mapbox"
 export default class extends Controller {
   static values = {
     apiKey: String,
