@@ -6,6 +6,17 @@ RSpec.describe "api/v1/houses", type: :request do
   end
 
   path "/api/v1/houses" do
+    get("list all houses") do
+      tags "houses"
+      consumes "application/json"
+      produces "application/json"
+
+      response(200, "successful") do
+        schema type: "array", items: { "$ref" => "#/components/schemas/house" }
+        run_test!
+      end
+    end
+
     post("create an house") do
       tags "houses"
       consumes "application/json"
