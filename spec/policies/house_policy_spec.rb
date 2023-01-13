@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe HousePolicy, type: :policy do
+  # subject { described_class.new(user, house) }
 
   # context 'being the creator' do
   #   let(:user) { FactoryBot.create(:user, :with_customer_role) }
   #   let(:house) { FactoryBot.create(:house, user: user) }
-  #   subject { described_class.new(user, house) }
 
   #   it { is_expected.to permit_action(%i[show edit update destroy]) }
   # end

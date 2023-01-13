@@ -8,8 +8,6 @@ require 'rspec/rails'
 require 'faker'
 require 'view_component/test_helpers'
 require 'capybara/rspec'
-require 'pundit/rspec'
-require 'pundit/matchers'
 
 I18n.reload!
 
@@ -40,7 +38,6 @@ end
 RSpec.configure do |config|
   # factory_bot fixtures + Warden
   include FactoryBot::Syntax::Methods
-  include Warden::Test::Helpers
 
   # Faker locale
   Faker::Config.locale = :en
