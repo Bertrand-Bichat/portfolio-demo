@@ -1,5 +1,6 @@
 import { Controller } from "stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import MapboxLanguage from '@mapbox/mapbox-gl-language';
 
 export default class extends Controller {
   static values = {
@@ -9,6 +10,7 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
+    const language = new MapboxLanguage();
 
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -18,6 +20,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                         mapboxgl: mapboxgl }))
+    this.map.addControl(language);
   }
 
   #addMarkersToMap() {
