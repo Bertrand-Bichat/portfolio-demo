@@ -14,7 +14,7 @@
           <%= link_to "Utilisateurs", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <a class="dropdown-toggle text-decoration-none" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle text-decoration-none" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag current_user&.avatar.attached? ? current_user.avatar : "empty-avatar.png", class: "avatar-large" %>
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -22,9 +22,6 @@
             <%= link_to "Modifier mon compte", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-          <%= link_to "Mon profil", profil_path(current_user.slug), class: "dropdown-item" %>
-          <%= link_to "Modifier mon compte", edit_user_registration_path, class: "dropdown-item" %>
-          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </li>
       <% else %>
         <li class="nav-item">
