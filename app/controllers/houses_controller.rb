@@ -25,11 +25,10 @@ class HousesController < ApplicationController
       if @house.save
         @notice = "La maison a bien été créée."
         format.html { redirect_to houses_path, notice: @notice }
-        format.js {}
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.js {}
       end
+      format.js {}
     end
   end
 
@@ -47,11 +46,10 @@ class HousesController < ApplicationController
       if @house.update(house_params)
         @notice = "La maison a bien été modifiée."
         format.html { redirect_to house_path(@house), notice: @notice }
-        format.js {}
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.js {}
       end
+      format.js {}
     end
   end
 

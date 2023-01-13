@@ -1,6 +1,14 @@
-// flash notice or alert
-<% if @notice %>
-  $("#flashes").append("<%= j render 'shared/flashes', notice: @notice %>");
-<% elsif @alert %>
-  $("#flashes").append("<%= j render 'shared/flashes', alert: @alert %>");
+<% if @house.errors.any? %>
+  <%# $(".error-message").remove(); %>
+  $("#helpBlock").removeClass("d-none");
+  <% @house.errors.full_messages.each do |message| %>
+    $("#helpBlock").append('<li class="error-message"><%= escape_javascript(message)%></li>');
+    <%# $(".js-form-button .fa-sync-alt").remove();
+    $(".js-form-button").css("pointer-events","auto"); %>
+  <% end %>
+<% else %>
+  $("#helpBlock").addClass("d-none");
+  <%# $("#btn-close").click(); %>
 <% end %>
+
+<%= render "shared/flashes_ajax", notice: @notice, alert: @alert %>

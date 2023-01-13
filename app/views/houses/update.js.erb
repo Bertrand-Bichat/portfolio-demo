@@ -1,6 +1,1 @@
-// flash notice or alert
-<% if @notice %>
-  $("#flashes").append("<%= j render 'shared/flashes', notice: @notice %>");
-<% elsif @alert %>
-  $("#flashes").append("<%= j render 'shared/flashes', alert: @alert %>");
-<% end %>
+<%= render "shared/flashes_ajax", notice: @notice, alert: @alert %>
