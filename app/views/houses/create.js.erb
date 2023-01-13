@@ -1,14 +1,16 @@
 <% if @house.errors.any? %>
-  <%# $(".error-message").remove(); %>
+
   $("#helpBlock").removeClass("d-none");
+  $(".error-message").remove();
   <% @house.errors.full_messages.each do |message| %>
     $("#helpBlock").append('<li class="error-message"><%= escape_javascript(message)%></li>');
-    <%# $(".js-form-button .fa-sync-alt").remove();
-    $(".js-form-button").css("pointer-events","auto"); %>
   <% end %>
+
 <% else %>
+
   $("#helpBlock").addClass("d-none");
-  <%# $("#btn-close").click(); %>
+  $("#btn-close").click();
+
 <% end %>
 
 <%= render "shared/flashes_ajax", notice: @notice, alert: @alert %>
