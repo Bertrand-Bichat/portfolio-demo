@@ -56,6 +56,8 @@
 
     <%= render 'shared/modal' %>
 
-    <%= yield %>
+    <div data-controller="house" data-house-id-value="<%= current_user.present? ? current_user.id : 0 %>">
+      <%= yield %>
+    </div>
   </body>
 </html>

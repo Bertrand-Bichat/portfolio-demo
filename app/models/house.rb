@@ -40,7 +40,18 @@ class House < ApplicationRecord
   # Scopes
   default_scope -> { order(name: :asc) }
 
+  # Callbacks
+  after_commit :broadcast_data
+
   def display_data
     "#{name} - #{address} [#{latitude}, #{longitude}]"
+  end
+
+  private
+
+  def broadcast_data
+    index_data = HousesController.renderer.render(partial: 'houses/index', locals: { houses: user.houses, user: user })
+    house_data = { house: self, user: user, index_data: index_data }
+    ActionCable.server.broadcast("houses_from_user_#{user.id}", house_data)
   end
 end
