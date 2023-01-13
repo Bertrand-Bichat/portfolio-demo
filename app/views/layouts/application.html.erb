@@ -49,7 +49,11 @@
     <% unless devise_controller? || controller_name == "errors" %>
       <%= render 'shared/navbar' %>
     <% end %>
-    <%= render 'shared/flashes' %>
+
+    <div id="flashes">
+      <%= render 'shared/flashes' %>
+    </div>
+
     <%= render 'shared/modal' %>
 
     <%= yield %>

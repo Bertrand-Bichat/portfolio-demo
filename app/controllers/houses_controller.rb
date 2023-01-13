@@ -23,7 +23,8 @@ class HousesController < ApplicationController
 
     respond_to do |format|
       if @house.save
-        format.html { redirect_to houses_path, notice: "La maison a bien été créée." }
+        @notice = "La maison a bien été créée."
+        format.html { redirect_to houses_path, notice: @notice }
         format.js {}
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +45,8 @@ class HousesController < ApplicationController
   def update
     respond_to do |format|
       if @house.update(house_params)
-        format.html { redirect_to house_path(@house), notice: "La maison a bien été modifiée." }
+        @notice = "La maison a bien été modifiée."
+        format.html { redirect_to house_path(@house), notice: @notice }
         format.js {}
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,9 +57,10 @@ class HousesController < ApplicationController
 
   def destroy
     @house.destroy
+    @notice = "La maison a bien été supprimée."
 
     respond_to do |format|
-      format.html { redirect_to houses_path, notice: "La maison a bien été supprimée." }
+      format.html { redirect_to houses_path, notice: @notice }
       format.js {}
     end
   end
