@@ -1,0 +1,16 @@
+<%# create or update ajax %>
+<% if object.errors.any? %>
+
+  $(".helpBlock").removeClass("d-none");
+  $(".error-message").remove();
+  <% object.errors.full_messages.each do |message| %>
+    $(".helpBlock").append('<li class="error-message"><%= escape_javascript(message)%></li>');
+  <% end %>
+
+<% else %>
+
+  $(".helpBlock").addClass("d-none");
+
+<% end %>
+
+<%= render "shared/flashes_ajax", notice: notice, alert: alert %>

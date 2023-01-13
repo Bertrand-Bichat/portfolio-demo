@@ -1,6 +1,8 @@
-// flash notice or alert
+<%# flash notice or alert %>
 <% if notice %>
+  $(".btn-close").click();
   $("#flashes").append("<%= j render 'shared/flashes', notice: notice %>");
 <% elsif alert %>
+  $(".btn-close").click();
   $("#flashes").append("<%= j render 'shared/flashes', alert: alert %>");
 <% end %>
