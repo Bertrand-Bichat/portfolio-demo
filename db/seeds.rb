@@ -8,6 +8,7 @@ if Rails.env == "production"
 else
 
   puts "Delete all database instances..."
+  House.destroy_all
   User.destroy_all
 
 
@@ -41,7 +42,7 @@ else
   end
 
   puts "Creating 1 admin..."
-  user = User.new(
+  user1 = User.new(
     email:         "test@gmail.com",
     password:      "password",
     first_name:    "Bertrand",
@@ -50,8 +51,16 @@ else
     pseudo:        "BBichat"
   )
   file = File.open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
-  user.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
-  user.save!
+  user1.avatar.attach(io: file, filename: 'avatar.jpg', content_type: 'image/jpg')
+  user1.save!
+
+  puts "Creating 1 house for the last admin..."
+  house = House.new(
+    name:         "Travail",
+    address:      "21 rue Haxo, 13001 Marseille",
+    user:         user1
+  )
+  house.save!
 
 
   puts "Finished!"
