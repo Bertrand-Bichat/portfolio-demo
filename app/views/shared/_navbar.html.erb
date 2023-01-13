@@ -19,6 +19,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Mon profil", profil_path(current_user.slug), class: "dropdown-item" %>
+            <%= link_to "Mes maisons", houses_path, class: "dropdown-item" %>
             <%= link_to "Modifier mon compte", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
