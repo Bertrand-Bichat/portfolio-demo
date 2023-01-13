@@ -3,10 +3,11 @@
   <%= image_tag @user.avatar, class: "avatar" %>
   <span class=<%= "text-green" if @user.online %>><%= @user.full_name %></span>
 
-  <div class="d-flex justify-content-between align-items-center my-5">
+  <div class="my-5">
     <h2>Ses maisons</h2>
-    <div></div>
-    <%= link_to "Gérer mes maisons", houses_path, class: "btn btn-primary" %>
+    <% if current_user.present? && current_user == @user %>
+      <%= link_to "Gérer mes maisons", houses_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
   <% if @houses_geocoded.empty? %>
     <em>Aucune</em>
