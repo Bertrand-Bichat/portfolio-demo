@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   # Models
   resources :houses
+  get '/search-houses', to: 'houses#search', as: :houses_search
 
   # API Endpoints
   namespace :api do

@@ -5,6 +5,17 @@ class HousesController < ApplicationController
     @houses = policy_scope(House)
   end
 
+  def search
+    authorize :house, :search?
+    index
+
+    if params[:query].present?
+      @houses = @houses.search_by_name_and_address(params[:query]).uniq
+    end
+
+    render :index
+  end
+
   def show; end
 
   def new

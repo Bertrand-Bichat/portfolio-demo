@@ -18,4 +18,5 @@ class HousePolicy < ApplicationPolicy
   end
 
   alias create? new?
+  alias search? new?
 end
