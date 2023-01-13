@@ -2,13 +2,14 @@
   <h1>Gestion de mes maisons</h1>
   <p><%= link_to "+ Ajouter une maison", new_house_path, remote: true, class: "btn btn-primary", data: { "bs-toggle" => "modal", "bs-target" => "#staticBackdrop" } %></p>
 
-  <%= form_tag houses_search_path, method: :get do %>
+  <%= form_tag url: houses_search_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Adresse ou Nom"
-    %>
-    <%= submit_tag "Recherche", class: "btn btn-primary w-100 my-4" %>
+        params[:query],
+        class: "form-control",
+        placeholder: "Adresse ou Nom" %>
+    <%= button_tag type: "submit", class: "btn btn-primary" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
   <% end %>
 
   <div class="row mt-5">
