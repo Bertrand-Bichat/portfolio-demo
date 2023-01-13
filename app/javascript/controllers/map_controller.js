@@ -1,6 +1,6 @@
 import { Controller } from "stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
-import MapboxLanguage from '@mapbox/mapbox-gl-language'
+import MapboxLanguage from "@mapbox/mapbox-gl-language"
 
 export default class extends Controller {
   static values = {
