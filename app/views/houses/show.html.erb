@@ -3,5 +3,13 @@
   <p class="pop-time"><%= @house.created_at.strftime("ajouté le %d-%m-%Y") %></p>
   <p class="pop-user"><%= @house.address %></p>
   <br>
+  <% if @house.photos.attached? %>
+    <% @house.photos.each do |photo| %>
+      <%= link_to rails_blob_path(photo), target: "_blank" do %>
+        <%= image_tag photo, height: 50, width: 50, class: "m-1" %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <br>
   <div><%= link_to "Retour", :back %></div>
 </div>
