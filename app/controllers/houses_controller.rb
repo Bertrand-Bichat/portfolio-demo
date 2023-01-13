@@ -9,6 +9,12 @@ class HousesController < ApplicationController
 
   def new
     @house = authorize House.new
+    @title = "Nouvelle maison"
+
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def create
@@ -27,6 +33,8 @@ class HousesController < ApplicationController
   end
 
   def edit
+    @title = "Modifier la maison"
+
     respond_to do |format|
       format.html {}
       format.js {}

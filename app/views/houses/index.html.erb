@@ -1,6 +1,6 @@
 <div class="container my-5">
   <h1>Gestion de mes maisons</h1>
-  <p><%= link_to "+ Ajouter une maison", new_house_path, class: "btn btn-primary" %></p>
+  <p><%= link_to "+ Ajouter une maison", new_house_path, remote: true, class: "btn btn-primary", data: { "bs-toggle" => "modal", "bs-target" => "#staticBackdrop" } %></p>
   <div class="row mt-5">
     <% @houses.each do |house| %>
       <%= render(HouseCardComponent.new(house: house)) %>
