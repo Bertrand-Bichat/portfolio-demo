@@ -1,14 +1,14 @@
 <% if @house.errors.any? %>
 
-  $("#helpBlock").removeClass("d-none");
+  $(".helpBlock").removeClass("d-none");
   $(".error-message").remove();
   <% @house.errors.full_messages.each do |message| %>
-    $("#helpBlock").append('<li class="error-message"><%= escape_javascript(message)%></li>');
+    $(".helpBlock").append('<li class="error-message"><%= escape_javascript(message)%></li>');
   <% end %>
 
 <% else %>
 
-  $("#helpBlock").addClass("d-none");
+  $(".helpBlock").addClass("d-none");
   $("#btn-close").click();
 
 <% end %>
