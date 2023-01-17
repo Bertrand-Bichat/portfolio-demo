@@ -25,8 +25,14 @@ Rails.application.routes.draw do
   match '/500', to: 'errors#internal_server_error', via: :all
 
   # Models
-  resources :houses
-  get '/search-houses', to: 'houses#search', as: :houses_search
+  resources :houses do
+    collection do
+      get :search
+      get :export_data
+    end
+  end
+  # get '/search-houses', to: 'houses#search', as: :houses_search
+  # get '/export-houses-data', to: 'houses#export_data', as: :houses_export_data
 
   # API Endpoints
   namespace :api do

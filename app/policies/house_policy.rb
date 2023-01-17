@@ -19,4 +19,5 @@ class HousePolicy < ApplicationPolicy
 
   alias create? new?
   alias search? new?
+  alias export_data? new?
 end

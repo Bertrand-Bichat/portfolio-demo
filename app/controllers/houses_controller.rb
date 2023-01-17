@@ -74,6 +74,10 @@ class HousesController < ApplicationController
     end
   end
 
+  def export_data
+    authorize :house, :export_data?
+  end
+
   private
 
   def set_house
