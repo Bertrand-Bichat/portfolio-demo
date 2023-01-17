@@ -82,6 +82,19 @@ class HousesController < ApplicationController
     redirect_to root_path, notice: "Votre export est en cours de traitement. Vous le recevrez par email lorsqu'il sera terminé."
   end
 
+  def pdf_generator
+    authorize :house, :pdf_generator?
+    @houses = House.all.includes([:user])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "file_name",
+                layout: 'pdf.html.erb'
+      end
+    end
+  end
+
   private
 
   def set_house

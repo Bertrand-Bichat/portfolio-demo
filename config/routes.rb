@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     collection do
       get :search
       get :export_data
+      get :pdf_generator
     end
   end
 

@@ -23,4 +23,6 @@ class HousePolicy < ApplicationPolicy
   def export_data?
     new? && user.role.admin?
   end
+
+  alias pdf_generator? export_data?
 end
