@@ -41,6 +41,9 @@ class House < ApplicationRecord
   # Active Storage
   has_many_attached :photos
 
+  # Action Text
+  has_rich_text :description
+
   # Validations
   validates :name, :address, presence: true
   validates :photos,

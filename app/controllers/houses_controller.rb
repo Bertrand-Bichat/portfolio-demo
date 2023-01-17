@@ -89,6 +89,6 @@ class HousesController < ApplicationController
   end
 
   def house_params
-    params.require(:house).permit(:name, :address, photos: [])
+    params.require(:house).permit(:name, :address, :description, photos: [])
   end
 end
