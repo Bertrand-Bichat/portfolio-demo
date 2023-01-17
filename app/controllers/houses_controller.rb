@@ -84,14 +84,11 @@ class HousesController < ApplicationController
 
   def pdf_generator
     authorize :house, :pdf_generator?
-    @houses = House.all.includes([:user])
+    @houses = House.includes([:user]).all
 
     respond_to do |format|
       format.html
-      format.pdf do
-        render  pdf: "houses_#{DateTime.now.strftime('%d-%m-%Y_%Hh%M')}",
-                layout: 'pdf.html.erb'
-      end
+      format.pdf { render pdf: "houses_#{DateTime.now.strftime('%d-%m-%Y_%Hh%M')}", layout: "pdf.html.erb" }
     end
   end
 
