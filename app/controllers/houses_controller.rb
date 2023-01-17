@@ -89,7 +89,7 @@ class HousesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render  pdf: "file_name",
+        render  pdf: "houses_#{DateTime.now.strftime('%d-%m-%Y_%Hh%M')}",
                 layout: 'pdf.html.erb'
       end
     end
