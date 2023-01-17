@@ -87,7 +87,6 @@ class HousesController < ApplicationController
     @houses = House.includes([:user]).all
 
     respond_to do |format|
-      format.html
       format.pdf { render pdf: "houses_#{DateTime.now.strftime('%d-%m-%Y_%Hh%M')}", layout: "pdf.html.erb" }
     end
   end

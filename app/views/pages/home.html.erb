@@ -8,9 +8,11 @@
     <h2 class="mt-5">Actions pour les admins</h2>
 
     <%= link_to export_data_houses_path, class: "btn btn-primary" do %>
-      <i class="fas fa-download">  Export CSV des maisons</i>
+      <i class="fas fa-download"></i> Export CSV des maisons (envoi par mail)
     <% end %>
 
-    <%= link_to "Export PDF des maisons (prévisualisation)", pdf_generator_houses_path, class: "btn btn-primary" %>
+    <%= link_to pdf_generator_houses_path(format: :pdf), target: "_blank", rel: "noopener noreferer", class: "btn btn-primary" do %>
+      <i class="fas fa-download"></i> Export PDF des maisons
+    <% end %>
   <% end %>
 </div>
