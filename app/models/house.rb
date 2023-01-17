@@ -58,6 +58,10 @@ class House < ApplicationRecord
     "#{name} - #{address} [#{latitude}, #{longitude}]"
   end
 
+  def user_full_name
+    user.full_name
+  end
+
   private
 
   def broadcast_data

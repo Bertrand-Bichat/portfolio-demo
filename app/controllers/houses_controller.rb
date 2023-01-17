@@ -76,6 +76,10 @@ class HousesController < ApplicationController
 
   def export_data
     authorize :house, :export_data?
+    attributes = %w[name address latitude longitude created_at updated_at user_full_name]
+
+    ExportToEmailJob.perform_later(attributes: attributes, element_class: "House", user_id: current_user.id)
+    redirect_to root_path, notice: "Votre export est en cours de traitement. Vous le recevrez par email lorsqu'il sera terminé."
   end
 
   private

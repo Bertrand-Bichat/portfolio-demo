@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails/all"
+require "csv"
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -27,6 +29,9 @@ module PortfolioDemo
 
     # fix Faker locale
     Faker::Config.locale = :en
+
+    # Timezone management
+    config.time_zone = "Europe/Paris"
 
     # Configuration for the application, engines, and railties goes here.
     #

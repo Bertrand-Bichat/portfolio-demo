@@ -31,8 +31,6 @@ Rails.application.routes.draw do
       get :export_data
     end
   end
-  # get '/search-houses', to: 'houses#search', as: :houses_search
-  # get '/export-houses-data', to: 'houses#export_data', as: :houses_export_data
 
   # API Endpoints
   namespace :api do
