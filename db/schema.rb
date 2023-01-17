@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_17_125348) do
+ActiveRecord::Schema.define(version: 2023_01_17_143451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,4 +88,20 @@ ActiveRecord::Schema.define(version: 2023_01_17_125348) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "houses", "users"
+
+  create_view "items", sql_definition: <<-SQL
+      SELECT users.id,
+      users.created_at,
+      users.updated_at,
+      NULL::bigint AS user_id,
+      'User'::text AS class_type
+     FROM users
+  UNION
+   SELECT houses.id,
+      houses.created_at,
+      houses.updated_at,
+      houses.user_id,
+      'House'::text AS class_type
+     FROM houses;
+  SQL
 end
