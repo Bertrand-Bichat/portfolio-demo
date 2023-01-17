@@ -56,7 +56,7 @@
 
     <%= render 'shared/modal' %>
 
-    <div data-controller="house" data-house-id-value="<%= current_user.present? ? current_user.id : 0 %>">
+    <div class="trix-content" data-controller="house" data-house-id-value="<%= current_user.present? ? current_user.id : 0 %>">
       <%= yield %>
     </div>
   </body>

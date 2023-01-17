@@ -10,6 +10,7 @@ import "channels"
 import "jquery"
 require("trix")
 require("@rails/actiontext")
+import Trix from "trix";
 
 Rails.start()
 Turbolinks.start()
@@ -50,3 +51,29 @@ window.addEventListener('load', () => {
 window.addEventListener('offline', () => {
   window.location.reload();
 });
+
+// Trix.config.textAttributes.underline = {
+//   style: { "textDecoration": "underline" },
+//   inheritable: true,
+//   parser: function (element) {
+//       var style = window.getComputedStyle(element);
+//       return style.textDecoration === "underline";
+//   }
+// }
+
+// document.addEventListener('trix-initialize', function (e) {
+//   const trix = e.target;
+//   const toolBar = trix.toolbarElement;
+
+//   // // Creation of the button
+//   const button = document.createElement("button");
+//   button.setAttribute("type", "button");
+//   button.setAttribute("class", "trix-button trix-button--icon trix-button--icon-underline");
+//   button.setAttribute("data-trix-attribute", "underline");
+//   button.setAttribute("title", "underline");
+//   button.setAttribute("tabindex", "-1");
+//   button.innerText = "U";
+
+//   // Attachment of the button to the toolBar
+//   const uploadButton = toolBar.querySelector('.trix-button-group--text-tools').appendChild(button);
+// });
