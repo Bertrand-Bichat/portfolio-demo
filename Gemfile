@@ -31,11 +31,56 @@ gem 'devise'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
+
+# Seeds
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+
+# Policies
+gem 'pundit', "~> 2.3"
+
+# Background jobs
+gem 'sidekiq', "~> 6.0.2"
+gem 'sidekiq-failures'
+gem 'devise-async'
+
+# Active Record
+gem 'enumerize'
+gem 'active_storage_validations'
+gem 'geocoder'
+
+# Views
+gem 'view_component'
+
+# Active Storage
+gem 'cloudinary'
+
+# SEO
+gem 'sitemap_generator'
+gem 'friendly_id'
+
+# Mailer in prod
+gem 'postmark-rails'
+
+# API
+gem 'rswag'
+gem 'rack-cors'
+
+# Search bar
+gem 'pg_search'
+
+# SQL views
+gem 'scenic'
+
+# PDF generator
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
+
+  # Tests
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'
 
@@ -48,8 +93,11 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+
+  # N+1 queries
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'bullet'
+
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -63,28 +111,10 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  # Rspec tests
   gem 'shoulda-matchers', '~> 5.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'pundit', "~> 2.3"
-gem 'sidekiq', "~> 6.0.2"
-gem 'sidekiq-failures'
-gem 'devise-async'
-gem 'enumerize'
-gem 'view_component'
-gem 'active_storage_validations'
-gem 'postmark-rails'
-gem 'cloudinary'
-gem 'sitemap_generator'
-gem 'friendly_id'
-gem 'geocoder'
-gem 'rswag'
-gem 'jwt'
-gem 'rack-cors'
-gem 'pg_search'
-gem 'scenic'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
