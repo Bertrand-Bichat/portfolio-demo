@@ -5,7 +5,8 @@ module Maintenance
     def collection
       # Collection to be iterated over
       # Must be Active Record Relation or Array
-      User.where(role: "customer")
+  # discard_on ActiveJob::DeserializationError
+      User.unscoped.where(role: "customer")
     end
 
     def process(element)
