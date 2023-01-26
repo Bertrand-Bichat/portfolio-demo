@@ -4,12 +4,11 @@ require "rails_helper"
 
 module Maintenance
   RSpec.describe OfflineCustomersTask do
-    describe "#process" do
-      subject(:process) { described_class.process(element) }
-      let(:element) {
-        # Object to be processed in a single iteration of this task
-      }
-      pending "add some examples to (or delete) #{__FILE__}"
+    it "should set customer online to false" do
+      user = create(:user, :with_customer_role, online: true)
+      assert_equal true, user.online
+      Maintenance::OfflineCustomersTask.process(user)
+      assert_equal false, user.online
     end
   end
 end
