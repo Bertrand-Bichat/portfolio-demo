@@ -12,7 +12,7 @@ module Maintenance
       # The work to be done in a single iteration of the task.
       # This should be idempotent, as the same element may be processed more
       # than once if the task is interrupted and resumed.
-      element.update_columns(online: false)
+      element.update_columns(online: true)
     end
 
     def count

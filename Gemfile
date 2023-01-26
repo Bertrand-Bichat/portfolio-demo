@@ -18,7 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 5.0.5'
+gem "redis", "~> 4.6.0" # https://github.com/ixti/sidekiq-throttled/pull/13
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,7 +39,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main
 gem 'pundit', "~> 2.3"
 
 # Background jobs
-gem 'sidekiq', "~> 6.0.2"
+gem "sidekiq", "6.4.2" # FIXME: https://github.com/mperham/sidekiq/issues/5372
 gem 'sidekiq-failures'
 gem 'devise-async'
 
@@ -76,7 +76,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 # Maintenance tasks
-gem "maintenance_tasks", "~> 2.0"
+gem "maintenance_tasks", "1.8.2"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

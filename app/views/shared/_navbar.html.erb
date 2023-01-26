@@ -24,11 +24,11 @@
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <hr class="dropdown-divider">
             <% if current_user.role.admin? %>
-              <%= link_to "Sidekiq", "/sidekiq", class: "dropdown-item", target: "_blank" %>
-              <%= link_to "Maintenance tasks", "/maintenance_tasks", class: "dropdown-item", target: "_blank" %>
-              <%= link_to "Letter Opener", "/letter_opener", class: "dropdown-item", target: "_blank" %>
+              <%= link_to "Sidekiq", sidekiq_path, class: "dropdown-item", target: "_blank" %>
+              <%= link_to "Maintenance tasks", maintenance_tasks_path, class: "dropdown-item", target: "_blank" %>
+              <%= link_to "Letter Opener", letter_opener_path, class: "dropdown-item", target: "_blank" %>
             <% end %>
-            <%= link_to "API Swagger", "/api-docs", class: "dropdown-item", target: "_blank" %>
+            <%= link_to "API Swagger", swagger_api_path, class: "dropdown-item", target: "_blank" %>
           </div>
         </li>
       <% else %>
