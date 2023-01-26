@@ -3,8 +3,8 @@ class PagesController < ApplicationController
 
   def home
     authorize :page, :home?
-    @customers = User.with_role(:customer).includes([:avatar_attachment])
-    @admins = User.with_role(:admin).includes([:avatar_attachment])
+    @customers = User.with_role(:customer).includes([:avatar_attachment]).order(id: :asc)
+    @admins = User.with_role(:admin).includes([:avatar_attachment]).order(id: :asc)
   end
 
   def offline

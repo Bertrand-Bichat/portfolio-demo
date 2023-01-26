@@ -53,7 +53,7 @@ class User < ApplicationRecord
             content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'Veuillez utiliser une image au format PNG, JPG ou JPEG' }
 
   # Scopes
-  default_scope -> { order(id: :asc) }
+  # default_scope -> { order(id: :asc) }
   scope :with_online_true, -> { where(online: true) }
 
   # Callbacks
