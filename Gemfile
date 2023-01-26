@@ -75,6 +75,8 @@ gem 'scenic'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+# Maintenance tasks
+gem "maintenance_tasks", "~> 2.0"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

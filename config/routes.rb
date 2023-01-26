@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   # Develomment tools
   authenticate :user, ->(user) { user.role.admin? } do
     mount Sidekiq::Web => '/sidekiq'
+    mount MaintenanceTasks::Engine => "/maintenance_tasks"
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   mount Rswag::Ui::Engine => '/api-docs'
