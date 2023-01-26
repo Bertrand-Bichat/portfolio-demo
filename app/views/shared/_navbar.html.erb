@@ -22,14 +22,13 @@
             <%= link_to "Mes maisons", houses_path, class: "dropdown-item" %>
             <%= link_to "Modifier mon compte", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            <br>
+            <hr class="dropdown-divider">
             <% if current_user.role.admin? %>
               <%= link_to "Sidekiq", "/sidekiq", class: "dropdown-item", target: "_blank" %>
               <%= link_to "Maintenance tasks", "/maintenance_tasks", class: "dropdown-item", target: "_blank" %>
               <%= link_to "Letter Opener", "/letter_opener", class: "dropdown-item", target: "_blank" %>
-              <%= link_to "API Swagger", "/api-docs", class: "dropdown-item", target: "_blank" %>
-
             <% end %>
+            <%= link_to "API Swagger", "/api-docs", class: "dropdown-item", target: "_blank" %>
           </div>
         </li>
       <% else %>
