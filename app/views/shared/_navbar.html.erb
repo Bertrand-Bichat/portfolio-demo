@@ -15,13 +15,21 @@
         </li>
         <li class="nav-item dropdown">
           <a class="dropdown-toggle text-decoration-none" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag current_user&.avatar.attached? ? current_user.avatar : "empty-avatar.png", class: "avatar-large" %>
+            <%= image_tag current_user.avatar.attached? ? current_user.avatar : "empty-avatar.png", class: "avatar-large" %>
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Mon profil", profil_path(current_user.slug), class: "dropdown-item" %>
             <%= link_to "Mes maisons", houses_path, class: "dropdown-item" %>
             <%= link_to "Modifier mon compte", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <br>
+            <% if current_user.role.admin? %>
+              <%= link_to "Sidekiq", "/sidekiq", class: "dropdown-item", target: "_blank" %>
+              <%= link_to "Maintenance tasks", "/maintenance_tasks", class: "dropdown-item", target: "_blank" %>
+              <%= link_to "Letter Opener", "/letter_opener", class: "dropdown-item", target: "_blank" %>
+              <%= link_to "API Swagger", "/api-docs", class: "dropdown-item", target: "_blank" %>
+
+            <% end %>
           </div>
         </li>
       <% else %>
