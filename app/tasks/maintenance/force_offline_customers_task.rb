@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Maintenance
-  class OfflineCustomersTask < MaintenanceTasks::Task
+  class ForceOfflineCustomersTask < MaintenanceTasks::Task
     def collection
       # Collection to be iterated over
       # Must be Active Record Relation or Array
