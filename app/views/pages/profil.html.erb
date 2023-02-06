@@ -1,12 +1,12 @@
 <div class="container text-center">
-  <h1 class="my-5">Profil de <%= @user.pseudo %></h1>
+  <h1 class="my-5"><%= t('user.profile.title', slug: @user.pseudo) %></h1>
   <%= image_tag @user.avatar, class: "avatar" %>
   <span class=<%= "text-green" if @user.online %>><%= @user.full_name %></span>
 
   <div class="my-5">
-    <h2>Ses maisons</h2>
+    <h2><%= t('user.profile.houses') %></h2>
     <% if current_user.present? && current_user == @user %>
-      <%= link_to "Gérer mes maisons", houses_path, class: "btn btn-primary" %>
+      <%= link_to t('user.profile.manage_houses'), houses_path, class: "btn btn-primary" %>
     <% end %>
   </div>
   <% if @houses_geocoded.empty? %>

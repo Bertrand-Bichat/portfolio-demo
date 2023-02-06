@@ -6,4 +6,8 @@ fr:
     admin_actions: "Actions pour les admins"
     customers: "Clients"
     index: "Utilisateurs"
-    profil: "Mon profil"
+    my_profile: "Mon profil"
+    profile:
+      title: "Profil de %{slug}"
+      houses: "Ses maisons"
+      manage_houses: "Gérer mes maisons"
