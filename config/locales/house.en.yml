@@ -1,3 +1,5 @@
 en:
   house:
-    index: "My houses"
+    index:
+      title: "Managing my houses"
+    my_houses: "My houses"

@@ -1,5 +1,5 @@
 <div class="container my-5 w-100" id="<%= dom_id(user, 'houseIndex') %>">
-  <h1>Gestion de mes maisons</h1>
+  <h1><%= t('house.index.title') %></h1>
   <p class="mb-5"><%= link_to "+ Ajouter une maison", new_house_path, remote: true, class: "btn btn-primary", data: { "bs-toggle" => "modal", "bs-target" => "#staticBackdrop" } %></p>
 
   <%= form_with url: search_houses_path, method: :get do %>

@@ -1,3 +1,5 @@
 fr:
   house:
-    index: "Mes maisons"
+    index:
+      title: "Gestion de mes maisons"
+    my_houses: "Mes maisons"

@@ -19,7 +19,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to t('user.my_profile'), profil_path(current_user.slug), class: "dropdown-item" %>
-            <%= link_to t('house.index'), houses_path, class: "dropdown-item" %>
+            <%= link_to t('house.my_houses'), houses_path, class: "dropdown-item" %>
             <%= link_to t('devise.registrations.edit_account'), edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to t('devise.sessions.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <hr class="dropdown-divider">
