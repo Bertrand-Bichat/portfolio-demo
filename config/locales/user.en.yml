@@ -1,0 +1,9 @@
+en:
+  user:
+    admin:
+      csv_export: "CSV export of houses (sent by email)"
+      pdf_export: "PDF export of houses"
+    admin_actions: "Actions for admins"
+    customers: "Customers"
+    index: "Users"
+    profil: "My profile"

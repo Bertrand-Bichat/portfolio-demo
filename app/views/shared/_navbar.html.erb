@@ -11,17 +11,17 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Utilisateurs", root_path, class: "nav-link" %>
+          <%= link_to t('user.index'), root_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <a class="dropdown-toggle text-decoration-none" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag current_user.avatar.attached? ? current_user.avatar : "empty-avatar.png", class: "avatar-large" %>
           </a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Mon profil", profil_path(current_user.slug), class: "dropdown-item" %>
-            <%= link_to "Mes maisons", houses_path, class: "dropdown-item" %>
-            <%= link_to "Modifier mon compte", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to t('user.profil'), profil_path(current_user.slug), class: "dropdown-item" %>
+            <%= link_to t('house.index'), houses_path, class: "dropdown-item" %>
+            <%= link_to t('devise.registrations.edit_account'), edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to t('devise.sessions.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <hr class="dropdown-divider">
             <% if current_user.role.admin? %>
               <%= link_to "Sidekiq", sidekiq_path, class: "dropdown-item", target: "_blank" %>

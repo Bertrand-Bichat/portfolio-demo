@@ -1,0 +1,9 @@
+fr:
+  user:
+    admin:
+      csv_export: "Export CSV des maisons (envoi par mail)"
+      pdf_export: "Export PDF des maisons"
+    admin_actions: "Actions pour les admins"
+    customers: "Clients"
+    index: "Utilisateurs"
+    profil: "Mon profil"

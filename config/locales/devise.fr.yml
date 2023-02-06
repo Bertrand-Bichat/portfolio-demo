@@ -37,6 +37,7 @@ fr:
       updated_not_active: "Votre mot de passe a été changé avec succès."
     registrations:
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
+      edit_account: "Modifier mon compte"
       signed_up: "Bienvenue, vous êtes connecté."
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé."
       signed_up_but_locked: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte est bloqué."
@@ -45,6 +46,7 @@ fr:
       updated: "Votre compte a été modifié avec succès."
       updated_but_not_signed_in: "Votre compte a été modifié avec succès. Merci de vous reconnecter."
     sessions:
+      logout: "Se déconnecter"
       signin: "Se connecter"
       signed_in: "Bienvenu !"
       signed_out: "A bientôt !"

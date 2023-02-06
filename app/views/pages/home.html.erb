@@ -2,17 +2,17 @@
 
 <div class="container mb-5">
   <%= render(UserCardsComponent.new(title: "Admins", users: @admins)) %>
-  <%= render(UserCardsComponent.new(title: "Customers", users: @customers)) %>
+  <%= render(UserCardsComponent.new(title: t('user.customers'), users: @customers)) %>
 
   <% if current_user.present? && current_user.role.admin? %>
-    <h2 class="mt-5">Actions pour les admins</h2>
+    <h2 class="mt-5"><%= t('user.admin_actions') %></h2>
 
     <%= link_to export_data_houses_path, class: "btn btn-primary" do %>
-      <i class="fas fa-download"></i> Export CSV des maisons (envoi par mail)
+      <i class="fas fa-download"></i> <%= t('user.admin.csv_export') %>
     <% end %>
 
     <%= link_to pdf_generator_houses_path(format: :pdf), target: "_blank", rel: "noopener noreferer", class: "btn btn-primary" do %>
-      <i class="fas fa-download"></i> Export PDF des maisons
+      <i class="fas fa-download"></i> <%= t('user.admin.pdf_export') %>
     <% end %>
   <% end %>
 </div>
