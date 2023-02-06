@@ -45,6 +45,7 @@ fr:
       updated: "Votre compte a été modifié avec succès."
       updated_but_not_signed_in: "Votre compte a été modifié avec succès. Merci de vous reconnecter."
     sessions:
+      signin: "Se connecter"
       signed_in: "Bienvenu !"
       signed_out: "A bientôt !"
       already_signed_out: "A bientôt !"

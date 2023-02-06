@@ -21,11 +21,10 @@ module PortfolioDemo
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # Whitelist locales available for the application
-    I18n.available_locales = [:fr, :en]
-
-    # Set the default local language
-    config.i18n.default_locale = :fr
+    # I18n translations
+    config.i18n.available_locales = [:fr, :en] # Whitelist locales available for the application
+    config.i18n.default_locale = :fr           # Set the default local language
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     # fix Faker locale
     Faker::Config.locale = :en
