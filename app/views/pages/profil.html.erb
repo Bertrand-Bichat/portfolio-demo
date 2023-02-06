@@ -10,7 +10,7 @@
     <% end %>
   </div>
   <% if @houses_geocoded.empty? %>
-    <em>Aucune</em>
+    <em><%= t('user.profile.empty_houses') %></em>
   <% else %>
     <div style="width: 100%; height: 600px;"
         class="mb-5"

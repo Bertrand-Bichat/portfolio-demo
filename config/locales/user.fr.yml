@@ -8,6 +8,7 @@ fr:
     index: "Utilisateurs"
     my_profile: "Mon profil"
     profile:
+      empty_houses: "Aucune"
       title: "Profil de %{slug}"
       houses: "Ses maisons"
       manage_houses: "Gérer mes maisons"

@@ -8,6 +8,7 @@ en:
     index: "Users"
     my_profile: "My profile"
     profile:
+      empty_houses: "None"
       title: "Profile of %{slug}"
       houses: "His/Her houses"
       manage_houses: "Manage my houses"
