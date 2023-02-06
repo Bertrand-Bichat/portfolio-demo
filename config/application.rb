@@ -22,7 +22,7 @@ module PortfolioDemo
     config.load_defaults 6.1
 
     # Whitelist locales available for the application
-    I18n.available_locales = [:en, :fr]
+    I18n.available_locales = [:fr, :en]
 
     # Set the default local language
     config.i18n.default_locale = :fr

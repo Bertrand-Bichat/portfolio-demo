@@ -78,6 +78,9 @@ gem 'wkhtmltopdf-binary'
 # Maintenance tasks
 gem "maintenance_tasks", "1.8.2"
 
+# Translations
+gem 'rails-i18n', '~> 6.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
