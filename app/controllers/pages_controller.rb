@@ -25,4 +25,11 @@ class PagesController < ApplicationController
       }
     end
   end
+
+  def language
+    authorize :page, :language?
+    locale = params[:locale]
+    session[:locale] = locale || I18n.default_locale
+    redirect_back(fallback_location: root_path)
+  end
 end

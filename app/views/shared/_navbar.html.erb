@@ -9,8 +9,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="dropdown-toggle text-decoration-none nav-link" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= t('languages.title') %>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+          <%= link_to t('languages.french'), language_path(locale: "fr"), class: "dropdown-item #{'font-weight-bold' if session[:locale] == 'fr'}" %>
+          <hr class="dropdown-divider">
+          <%= link_to t('languages.english'), language_path(locale: "en"), class: "dropdown-item #{'font-weight-bold' if session[:locale] == 'en'}" %>
+        </div>
+      </li>
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to t('user.index'), root_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">

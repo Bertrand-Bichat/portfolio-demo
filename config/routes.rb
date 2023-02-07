@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/offline', to: 'pages#offline', as: :offline
   get '/profil/:slug', to: 'pages#profil', as: :profil
+  get '/change-language', to: 'pages#language', as: :language
 
   # Webhook
   namespace :webhooks do
