@@ -34,7 +34,7 @@ class HousesController < ApplicationController
 
     respond_to do |format|
       if @house.save
-        @notice = "La maison a bien été créée."
+        @notice = t('house.create.success')
         format.html { redirect_to houses_path, notice: @notice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class HousesController < ApplicationController
   def update
     respond_to do |format|
       if @house.update(house_params)
-        @notice = "La maison a bien été modifiée."
+        @notice = t('house.update.success')
         format.html { redirect_to house_path(@house), notice: @notice }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class HousesController < ApplicationController
 
   def destroy
     @house.destroy
-    @notice = "La maison a bien été supprimée."
+    @notice = t('house.delete.success')
 
     respond_to do |format|
       format.html { redirect_to houses_path, notice: @notice }
@@ -79,7 +79,7 @@ class HousesController < ApplicationController
     attributes = %w[name address latitude longitude created_at updated_at user_id user_full_name]
 
     ExportToEmailJob.perform_later(attributes: attributes, element_class: "House", user_id: current_user.id)
-    redirect_to root_path, notice: "Votre export est en cours de traitement. Vous le recevrez par email lorsqu'il sera terminé."
+    redirect_to root_path, notice: t('house.csv_export.success')
   end
 
   def pdf_generator

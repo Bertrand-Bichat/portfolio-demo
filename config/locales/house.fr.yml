@@ -1,5 +1,12 @@
 fr:
   house:
+    create:
+      success: La maison a bien été créée.
+    created_at: ajouté le
+    csv_export:
+      success: Votre export est en cours de traitement. Vous le recevrez par email lorsqu'il sera terminé.
+    delete:
+      success: La maison a bien été supprimée.
     index:
       reset_search: Effacer les critères de recherche
       search: Filtre par adresse ou par nom
@@ -9,8 +16,13 @@ fr:
       address: Adresse
       description: Description
       photos: Photos
+      user: Utilisateur
+    list: Liste des maisons
     modal:
       edit: Modifier la maison
       new: Nouvelle maison
-    new: + Ajouter une maison
     my_houses: Mes maisons
+    new: + Ajouter une maison
+    no_description: Aucune description
+    update:
+      success: La maison a bien été modifiée.

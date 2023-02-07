@@ -1,5 +1,12 @@
 en:
   house:
+    create:
+      success: The house was created.
+    created_at: added the
+    csv_export:
+      success: Your export is being processed. You will receive it by email when it is finished.
+    delete:
+      success: The house was deleted.
     index:
       reset_search: Clear search criteria
       search: Filter by address or by name
@@ -9,8 +16,13 @@ en:
       address: Address
       description: Description
       photos: Photos
+      user: User
+    list: List of houses
     modal:
       edit: Edit the house
       new: New house
-    new: + Add a house
     my_houses: My houses
+    new: + Add a house
+    no_description: No description
+    update:
+      success: The house was updated.

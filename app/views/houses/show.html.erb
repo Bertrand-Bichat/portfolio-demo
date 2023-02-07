@@ -1,8 +1,8 @@
 <div class="container my-5">
   <p class="pop-title"><%= @house.name %></p>
-  <p class="pop-time"><%= @house.created_at.strftime("ajouté le %d-%m-%Y") %></p>
+  <p class="pop-time"><%= t('house.created_at') %> <%= @house.created_at.strftime("%d-%m-%Y") %></p>
   <p class="pop-user"><%= @house.address %></p>
-  <p><%= @house.description.blank? ? "<em>Aucune description</em>".html_safe : @house.description %></p>
+  <p><%= @house.description.blank? ? "<em>#{t('house.no_description')}</em>".html_safe : @house.description %></p>
   <br>
   <% if @house.photos.attached? %>
     <% @house.photos.each do |photo| %>
@@ -12,5 +12,5 @@
     <% end %>
   <% end %>
   <br>
-  <div><%= link_to "Retour", :back %></div>
+  <div><%= link_to t('back'), :back %></div>
 </div>
