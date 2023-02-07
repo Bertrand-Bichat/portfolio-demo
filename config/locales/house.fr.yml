@@ -4,6 +4,11 @@ fr:
       reset_search: Effacer les critères de recherche
       search: Filtre par adresse ou par nom
       title: Gestion de mes maisons
+    form:
+      name: Nom
+      address: Adresse
+      description: Description
+      photos: Photos
     modal:
       edit: Modifier la maison
       new: Nouvelle maison

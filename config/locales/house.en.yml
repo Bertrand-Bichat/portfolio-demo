@@ -4,6 +4,11 @@ en:
       reset_search: Clear search criteria
       search: Filter by address or by name
       title: Managing my houses
+    form:
+      name: Name
+      address: Address
+      description: Description
+      photos: Photos
     modal:
       edit: Edit the house
       new: New house

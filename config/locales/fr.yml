@@ -162,6 +162,9 @@ fr:
     english: Anglais
     french: Français
     title: Langues
+  modal:
+    close: Fermer
+    save: Sauvegarder
   number:
     currency:
       format:

@@ -38,3 +38,6 @@ en:
     english: English
     french: French
     title: Languages
+  modal:
+    close: Close
+    save: Save

@@ -7,20 +7,20 @@
     <div class="form-inputs">
       <%= f.input :name,
                   required: true,
-                  label: "Nom",
+                  label: t('house.form.name'),
                   input_html: { autocomplete: "name" } %>
       <%= f.input :address,
                   required: true,
-                  label: "Adresse",
+                  label: t('house.form.address'),
                   input_html: { autocomplete: "address", data: { address_autocomplete_target: "address" }, class: "d-none" },
                   wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] }} %>
       <%= f.input :description,
                   as: :rich_text_area,
-                  label: "Description",
+                  label: t('house.form.description'),
                   input_html: { autocomplete: "description" } %>
       <%= f.input :photos,
                   as: :file,
-                  label: "Photos",
+                  label: t('house.form.photos'),
                   input_html: { multiple: true } %>
     </div>
 
@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sauvegarder", class: "btn btn-primary" %>
+      <%= f.button :submit, t('modal.save'), class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
