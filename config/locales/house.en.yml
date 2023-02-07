@@ -1,5 +1,11 @@
 en:
   house:
     index:
-      title: "Managing my houses"
-    my_houses: "My houses"
+      reset_search: Clear search criteria
+      search: Filter by address or by name
+      title: Managing my houses
+    modal:
+      edit: Edit the house
+      new: New house
+    new: + Add a house
+    my_houses: My houses

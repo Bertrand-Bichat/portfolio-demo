@@ -20,7 +20,7 @@ class HousesController < ApplicationController
 
   def new
     @house = authorize House.new
-    @title = "Nouvelle maison"
+    @title = t('house.modal.new')
 
     respond_to do |format|
       format.html {}
@@ -44,7 +44,7 @@ class HousesController < ApplicationController
   end
 
   def edit
-    @title = "Modifier la maison"
+    @title = t('house.modal.edit')
 
     respond_to do |format|
       format.html {}

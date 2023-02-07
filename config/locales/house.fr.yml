@@ -1,5 +1,11 @@
 fr:
   house:
     index:
-      title: "Gestion de mes maisons"
-    my_houses: "Mes maisons"
+      reset_search: Effacer les critères de recherche
+      search: Filtre par adresse ou par nom
+      title: Gestion de mes maisons
+    modal:
+      edit: Modifier la maison
+      new: Nouvelle maison
+    new: + Ajouter une maison
+    my_houses: Mes maisons

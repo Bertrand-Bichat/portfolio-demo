@@ -8,6 +8,10 @@ fr:
             dépendant(e) existe
           has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
             dépendants existent
+  crud:
+    show: Voir
+    edit: Modifier
+    delete: Supprimer
   date:
     abbr_day_names:
     - dim
