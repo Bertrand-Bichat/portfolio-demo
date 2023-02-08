@@ -8,11 +8,7 @@ class HousesController < ApplicationController
   def search
     authorize :house, :search?
     index
-
-    if params[:query].present?
-      @houses = @houses.search_by_name_and_address(params[:query]).uniq
-    end
-
+    @houses = @houses.search_by_name_and_address(params[:query]).uniq if params[:query].present?
     render :index
   end
 
