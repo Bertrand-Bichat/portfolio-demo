@@ -85,4 +85,7 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.rails_logger = true
   end
+
+  # Better errors
+  config.consider_all_requests_local = true
 end

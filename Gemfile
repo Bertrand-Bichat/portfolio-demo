@@ -108,6 +108,10 @@ group :development do
   gem 'spring'
   gem 'letter_opener_web', '~> 2.0'
   gem 'annotate'
+
+  # Better errors
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
