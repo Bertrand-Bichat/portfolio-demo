@@ -58,7 +58,7 @@ class User < ApplicationRecord
 
   # Callbacks
   after_commit :shape_data, on: [:create, :update]
-  after_create_commit :send_welcome_email
+  after_commit :send_welcome_email, on: :create
 
   def full_name
     "#{first_name} #{last_name}"
